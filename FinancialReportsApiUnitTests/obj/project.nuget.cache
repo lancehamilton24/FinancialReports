@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YEmtLWGrFYHygIN77DzpWn79vSNG1Z1Wlm6uhKAWNCf+RpeuCwEBsddr6KV9LA6CdPHe/25edokBUYDJau6whQ==",
+  "dgSpecHash": "nqkac8nA3TCtRlWBwKyjORdqZzcQT48U3nOZ1nH3kTZltzA8xRVPWRxb7Ahb5fV28ht6w1vy5MqS/0eqy1eQyg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lance\\source\\repos\\FinancialReportsApiUnitTests\\FinancialReportsApiUnitTests.csproj",
+  "projectFilePath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsApiUnitTests\\FinancialReportsApiUnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lance\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\lance\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",
