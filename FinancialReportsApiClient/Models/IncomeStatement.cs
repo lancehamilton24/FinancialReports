@@ -111,14 +111,57 @@ namespace FinancialReportsApiClient.Models
         [JsonProperty("finalLink")]
         public Uri FinalLink { get; set; }
 
-        public double GrossProfitMargin { get { return CalculateProfitMargin(); } }
+        public double GrossProfitRatioPercentage { get { return CalculateGrossProfitRatioPercentage(); } }
 
+        public double NetIncomeRatioPercentage { get { return CalculateNetIncomeRatioPercentage(); } }
 
-        private double CalculateProfitMargin()
+        public double SGARatioPercentage { get { return CalculateSGARatioPercentage(); } }
+
+        public double RAndDRatioPercentage { get { return CalculateRAndDRatioPercentage(); } }
+
+        public double DepreciationRatioPercentage { get { return CalculateDepreciationRatioPercentage(); } }
+
+        public double InterestExpenseRatioPercentage { get { return CalculateInterestRatioPercentage(); } }
+
+        public double IncomeTaxExpenseRatioPercentage { get { return CalculateIncomeTaxRatioPercentage(); } }
+
+        private double CalculateGrossProfitRatioPercentage()
         {
-            double gp;
-            gp = ((double)GrossProfit / (double)Revenue) * 100;
-            return Math.Round(gp);
+            double gp = Math.Round(GrossProfitRatio * 100);
+            return gp;
+        }
+
+        private double CalculateNetIncomeRatioPercentage()
+        {
+            double ni = Math.Round(NetIncomeRatio * 100);
+            return ni;
+        }
+        //Calculating Selling, General, and Administrative expense ratio to Gross Profit
+        private double CalculateSGARatioPercentage()
+        {
+            double sga = (((double)SellingAndMarketingExpenses + (double)GeneralAndAdministrativeExpenses) / (double)GrossProfit) * 100;
+            sga = Math.Round(sga);
+            return sga;
+        }
+        private double CalculateRAndDRatioPercentage()
+        {
+            double rd = Math.Round(((double)ResearchAndDevelopmentExpenses / (double)GrossProfit) * 100);
+            return rd;
+        }
+        private double CalculateDepreciationRatioPercentage()
+        {
+            double depreciation = Math.Round(((double)DepreciationAndAmortization / (double)GrossProfit) * 100);
+            return depreciation;
+        }
+        private double CalculateInterestRatioPercentage()
+        {
+            double interestExpense = Math.Round(((double)InterestExpense / (double)OperatingIncome) * 100);
+            return interestExpense;
+        }
+        private double CalculateIncomeTaxRatioPercentage()
+        {
+            double incomeTax = Math.Round(((double)IncomeTaxExpense / (double)IncomeBeforeTax) * 100);
+            return incomeTax;
         }
     }
 }
