@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lance\\source\\repos\\FinancialReportsApiUnitTests\\FinancialReportsApiUnitTests.csproj": {}
+    "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsApiUnitTests\\FinancialReportsApiUnitTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lance\\source\\repos\\FinancialReportingApi\\FinancialReportsApi.csproj": {
+    "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsApiClient\\FinancialReportsApiClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lance\\source\\repos\\FinancialReportingApi\\FinancialReportsApi.csproj",
-        "projectName": "FinancialReportsApi",
-        "projectPath": "C:\\Users\\lance\\source\\repos\\FinancialReportingApi\\FinancialReportsApi.csproj",
+        "projectUniqueName": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsApiClient\\FinancialReportsApiClient.csproj",
+        "projectName": "FinancialReportsApiClient",
+        "projectPath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsApiClient\\FinancialReportsApiClient.csproj",
         "packagesPath": "C:\\Users\\lance\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lance\\source\\repos\\FinancialReportingApi\\obj\\",
+        "outputPath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsApiClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\Users\\lance\\source\\repos\\FinancialReportsApiUnitTests\\FinancialReportsApiUnitTests.csproj": {
+    "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsApiUnitTests\\FinancialReportsApiUnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lance\\source\\repos\\FinancialReportsApiUnitTests\\FinancialReportsApiUnitTests.csproj",
+        "projectUniqueName": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsApiUnitTests\\FinancialReportsApiUnitTests.csproj",
         "projectName": "FinancialReportsApiUnitTests",
-        "projectPath": "C:\\Users\\lance\\source\\repos\\FinancialReportsApiUnitTests\\FinancialReportsApiUnitTests.csproj",
+        "projectPath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsApiUnitTests\\FinancialReportsApiUnitTests.csproj",
         "packagesPath": "C:\\Users\\lance\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lance\\source\\repos\\FinancialReportsApiUnitTests\\obj\\",
+        "outputPath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsApiUnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -101,8 +101,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\lance\\source\\repos\\FinancialReportingApi\\FinancialReportsApi.csproj": {
-                "projectPath": "C:\\Users\\lance\\source\\repos\\FinancialReportingApi\\FinancialReportsApi.csproj"
+              "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsApiClient\\FinancialReportsApiClient.csproj": {
+                "projectPath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsApiClient\\FinancialReportsApiClient.csproj"
               }
             }
           }
