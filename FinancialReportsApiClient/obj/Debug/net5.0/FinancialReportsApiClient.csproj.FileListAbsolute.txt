@@ -27,4 +27,3 @@ C:\Users\lance\workspace\FinancialReports\FinancialReportsApiClient\obj\Debug\ne
 C:\Users\lance\workspace\FinancialReports\FinancialReportsApiClient\obj\Debug\net5.0\ref\FinancialReportsApiClient.dll
 C:\Users\lance\workspace\FinancialReports\FinancialReportsApiClient\obj\Debug\net5.0\FinancialReportsApiClient.pdb
 C:\Users\lance\workspace\FinancialReports\FinancialReportsApiClient\obj\Debug\net5.0\FinancialReportsApiClient.genruntimeconfig.cache
-C:\Users\lance\workspace\FinancialReports\FinancialReportsApiClient\obj\Debug\net5.0\FinancialReportsApiClient.csproj.AssemblyReference.cache
