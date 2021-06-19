@@ -14,7 +14,7 @@ namespace FinancialReportsApiClient.Controllers
     [Route("api/[controller]")]
     public class FinancialStatementsController : Controller
     {
-        [HttpGet("incomestatements")]
+        [HttpGet("incomestatements/{companyTicker}")]
         public async Task<List<IncomeStatement>> GetAllIncomeStatements(string companyTicker)
         {
                 List<IncomeStatement> incomeStatements;
