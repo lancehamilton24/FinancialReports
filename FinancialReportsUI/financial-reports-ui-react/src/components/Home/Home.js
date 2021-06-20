@@ -5,32 +5,44 @@ import './Home.css';
 class Home extends React.Component {
 
   state = {
-    companyTicker: ''
+    companyTicker: '',
+    isTickerSubmitted: false,
   }
 
   componentDidMount() {
 
   }
 
-  submitCompanyTicker = () => {
-    console.log(this.state);
-  }
+  tickerInput = React.createRef();
 
-  inputSubmitHandler = (e) => {
+  submitHandler = (e) => {
     e.preventDefault();
-    this.setState({
-        companyTicker: e.target.value
-    })
-}
+    this.setState({companyTicker: this.tickerInput.current.value});
+    if (this.tickerInput.current.value !== null)
+    {
+      this.setState({isTickerSubmitted: true});
+    }
+};
 
   render() {
-    // onChange={this.inputSubmitHandler}
+    if(this.state.isTickerSubmitted === false)
+    {
+      return (
+        <div>
+          <h1>Fincancial Statement Analysis</h1>
+          <form onSubmit={this.submitHandler}>
+          <input type="text" placeholder="Enter Company Ticker" ref={this.tickerInput} required></input>
+          <button type="button" onClick={this.submitHandler}>Get Data</button>
+          </form>
+        </div>
+      );
+    }
     return (
-      <div className="container">
+      <div>
         <h1>Fincancial Statement Analysis</h1>
-        <form>
-        <input className="form-control form-control-lg" type="text" placeholder="Enter Company Ticker" onChange={this.inputSubmitHandler}></input>
-        <button type="button" className="btn btn-dark" onClick={this.submitCompanyTicker}>Get Data</button>
+        <form onSubmit={this.submitHandler}>
+        <input type="text" placeholder="Enter Company Ticker" ref={this.tickerInput} required></input>
+        <button type="button">Get Data</button>
         </form>
         <IncomeStatement companyTicker={this.state.companyTicker}></IncomeStatement>
       </div>

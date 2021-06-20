@@ -1,4 +1,5 @@
 ﻿using FinancialReportsApiClient.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 namespace FinancialReportsApiClient.Controllers
 {
     [ApiController]
+    [EnableCors("My Policy")]
     [Route("api/[controller]")]
     public class FinancialStatementsController : Controller
     {

@@ -19,9 +19,10 @@ class IncomeStatement extends React.Component {
   }
 
   render() {
-    // this.getAllIncomeStatements(this.props.companyTicker)
+    this.getAllIncomeStatements(this.props.companyTicker)
     return (
       <div className="container">
+        <h4>Company Income Statements</h4>
       </div>
     );
   }

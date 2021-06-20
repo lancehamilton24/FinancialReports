@@ -26,7 +26,22 @@ namespace FinancialReportsApiClient
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy(name: "My Policy", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
 
+            //services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            //{
+            //    builder.AllowAnyOrigin()
+            //           .AllowAnyMethod()
+            //           .AllowAnyHeader();
+            //}));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -37,6 +52,7 @@ namespace FinancialReportsApiClient
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -47,17 +63,18 @@ namespace FinancialReportsApiClient
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors("My Policy");
+            //app.UseCors(builder =>
+            //{
+            //    builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000/").AllowCredentials();
+            //});
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-            app.UseCors(builder =>
-            {
-                builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000/").AllowCredentials();
-            });
+            
         }
     }
 }
