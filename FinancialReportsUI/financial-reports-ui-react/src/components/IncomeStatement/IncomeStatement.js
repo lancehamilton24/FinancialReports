@@ -23,7 +23,7 @@ class IncomeStatement extends React.Component {
     // const listItems = this.state.incomeStatements.map((incomeStatement) =>
     //     <li key={incomeStatement.date}>{incomeStatement.year}</li>
     // );
-    const IncomeStatement = ({ year, symbol, grossprofitratiopercentage, netincomeratiopercentage, sgaratiopercentage, randdatiopercentage, depreciationratiopercentage, interestexpenseratiopercentage, incometaxexpenseratiopercentage }) => (
+    const IncomeStatement = ({ year, symbol, grossProfitRatioPercentage, netIncomeRatioPercentage, sgaRatioPercentage, rAndDRatioPercentage, depreciationRatioPercentage, interestExpenseRatioPercentage, incomeTaxExpenseRatioPercentage }) => (
       <div>
         <table>
             <tr>
@@ -40,13 +40,13 @@ class IncomeStatement extends React.Component {
             <tr>
               <td>{year}</td>
               <td>{symbol}</td>
-              <td>{grossprofitratiopercentage}%</td>
-              <td>{netincomeratiopercentage}%</td>
-              <td>{sgaratiopercentage}%</td>
-              <td>{randdatiopercentage}%</td>
-              <td>{depreciationratiopercentage}%</td>
-              <td>{interestexpenseratiopercentage}%</td>
-              <td>{incometaxexpenseratiopercentage}%</td>
+              <td>{grossProfitRatioPercentage}%</td>
+              <td>{netIncomeRatioPercentage}%</td>
+              <td>{sgaRatioPercentage}%</td>
+              <td>{rAndDRatioPercentage}%</td>
+              <td>{depreciationRatioPercentage}%</td>
+              <td>{interestExpenseRatioPercentage}%</td>
+              <td>{incomeTaxExpenseRatioPercentage}%</td>
             </tr>
         </table>
       </div>
@@ -59,13 +59,13 @@ class IncomeStatement extends React.Component {
           <IncomeStatement
             year={incomeStatement.year}
             symbol={incomeStatement.symbol}
-            grossprofitratiopercentage={incomeStatement.grossprofitratiopercentage}
-            netincomeratiopercentage={incomeStatement.netincomeratiopercentage}
+            grossProfitRatioPercentage={incomeStatement.grossProfitRatioPercentage}
+            netIncomeRatioPercentage={incomeStatement.netIncomeRatioPercentage}
             sgaratiopercentag={incomeStatement.sgaratiopercentag}
-            randdatiopercentage={incomeStatement.randdatiopercentage}
-            depreciationratiopercentage={incomeStatement.depreciationratiopercentage}
-            interestexpenseratiopercentage={incomeStatement.interestexpenseratiopercentage}
-            incometaxexpenseratiopercentage={incomeStatement.incometaxexpenseratiopercentage}
+            rAndDRatioPercentage={incomeStatement.rAndDRatioPercentage}
+            depreciationRatioPercentage={incomeStatement.depreciationRatioPercentage}
+            interestExpenseRatioPercentage={incomeStatement.interestExpenseRatioPercentage}
+            incomeTaxExpenseRatioPercentage={incomeStatement.incomeTaxExpenseRatioPercentage}
             key={incomeStatement.id}
           />
         ))}
