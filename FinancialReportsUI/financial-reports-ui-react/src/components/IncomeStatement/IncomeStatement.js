@@ -8,8 +8,12 @@ class IncomeStatement extends React.Component {
     incomeStatements: []
   }
 
-  componentDidMount() {
-    // this.getAllIncomeStatements();
+  componentDidUpdate() {
+    this.getAllIncomeStatements(this.props.companyTicker)
+  }
+
+  componentDidMount(){
+    this.getAllIncomeStatements(this.props.companyTicker)
   }
 
   getAllIncomeStatements = (companyTicker) => {
@@ -19,10 +23,7 @@ class IncomeStatement extends React.Component {
   }
 
   render() {
-    this.getAllIncomeStatements(this.props.companyTicker)
-    // const listItems = this.state.incomeStatements.map((incomeStatement) =>
-    //     <li key={incomeStatement.date}>{incomeStatement.year}</li>
-    // );
+    
     const IncomeStatement = ({ year, symbol, grossProfitRatioPercentage, netIncomeRatioPercentage, sgaRatioPercentage, rAndDRatioPercentage, depreciationRatioPercentage, interestExpenseRatioPercentage, incomeTaxExpenseRatioPercentage }) => (
       <div>
         <table>
@@ -61,12 +62,12 @@ class IncomeStatement extends React.Component {
             symbol={incomeStatement.symbol}
             grossProfitRatioPercentage={incomeStatement.grossProfitRatioPercentage}
             netIncomeRatioPercentage={incomeStatement.netIncomeRatioPercentage}
-            sgaratiopercentag={incomeStatement.sgaratiopercentag}
+            sgaRatioPercentage={incomeStatement.sgaRatioPercentage}
             rAndDRatioPercentage={incomeStatement.rAndDRatioPercentage}
             depreciationRatioPercentage={incomeStatement.depreciationRatioPercentage}
             interestExpenseRatioPercentage={incomeStatement.interestExpenseRatioPercentage}
             incomeTaxExpenseRatioPercentage={incomeStatement.incomeTaxExpenseRatioPercentage}
-            key={incomeStatement.id}
+            // key={incomeStatement.year}
           />
         ))}
       </div>

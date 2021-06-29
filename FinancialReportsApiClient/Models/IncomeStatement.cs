@@ -9,8 +9,8 @@ namespace FinancialReportsApiClient.Models
 {
     public class IncomeStatement
     {
-        private static int id = 1;
-        public int Id { get { return id++; } }
+        //private static int id = 1;
+        //public int Id { get { return id++; } }
 
         [JsonProperty("date")]
         public DateTimeOffset Date { get; set; }

@@ -31,9 +31,9 @@ class Home extends React.Component {
       return (
         <div>
           <h1>Fincancial Statement Analysis</h1>
-          <form class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Enter Company Ticker" ref={this.tickerInput} required></input>
-          <button type="button" class="btn btn-outline-secondary" onClick={this.submitHandler}>Get Data</button>
+          <form>
+          <input type="text" placeholder="Enter Company Ticker" ref={this.tickerInput} required></input>
+          <button type="button" onClick={this.submitHandler}>Get Data</button>
           </form>
         </div>
       );
@@ -41,9 +41,9 @@ class Home extends React.Component {
     return (
       <div>
         <h1>Fincancial Statement Analysis</h1>
-        <form onSubmit={this.submitHandler}>
+        <form>
         <input type="text" placeholder="Enter Company Ticker" ref={this.tickerInput} required></input>
-        <button type="button">Get Data</button>
+        <button type="button" onClick={this.submitHandler}>Get Data</button>
         </form>
         <IncomeStatement companyTicker={this.state.companyTicker}></IncomeStatement>
       </div>
