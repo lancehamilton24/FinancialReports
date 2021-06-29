@@ -1,4 +1,5 @@
 import React from 'react';
+import { Table } from 'react-bootstrap';
 import incomeStatementRequests from '../../helpers/data/incomeStatementRequest';
 import './IncomeStatement.css';
 
@@ -23,53 +24,46 @@ class IncomeStatement extends React.Component {
   }
 
   render() {
-    
-    const IncomeStatement = ({ year, symbol, grossProfitRatioPercentage, netIncomeRatioPercentage, sgaRatioPercentage, rAndDRatioPercentage, depreciationRatioPercentage, interestExpenseRatioPercentage, incomeTaxExpenseRatioPercentage }) => (
-      <div>
-        <table>
-            <tr>
-              <th>Year</th>
-              <th>Ticker</th>
-              <th>Profit Margin</th>
-              <th>Net Income Margin</th>
-              <th>SGA Margin</th>
-              <th>R/D Margin</th>
-              <th>Depreciation Margin</th>
-              <th>Interest Expense Margin</th>
-              <th>Income Tax Expense Margin</th>
-            </tr>
-            <tr>
-              <td>{year}</td>
-              <td>{symbol}</td>
-              <td>{grossProfitRatioPercentage}%</td>
-              <td>{netIncomeRatioPercentage}%</td>
-              <td>{sgaRatioPercentage}%</td>
-              <td>{rAndDRatioPercentage}%</td>
-              <td>{depreciationRatioPercentage}%</td>
-              <td>{interestExpenseRatioPercentage}%</td>
-              <td>{incomeTaxExpenseRatioPercentage}%</td>
-            </tr>
-        </table>
-      </div>
-    );
-
+    const { incomeStatements } = this.state;
     return (
       <div className="container">
-        <h4>Company Income Statements</h4>
-        {this.state.incomeStatements.map((incomeStatement) => (
-          <IncomeStatement
-            year={incomeStatement.year}
-            symbol={incomeStatement.symbol}
-            grossProfitRatioPercentage={incomeStatement.grossProfitRatioPercentage}
-            netIncomeRatioPercentage={incomeStatement.netIncomeRatioPercentage}
-            sgaRatioPercentage={incomeStatement.sgaRatioPercentage}
-            rAndDRatioPercentage={incomeStatement.rAndDRatioPercentage}
-            depreciationRatioPercentage={incomeStatement.depreciationRatioPercentage}
-            interestExpenseRatioPercentage={incomeStatement.interestExpenseRatioPercentage}
-            incomeTaxExpenseRatioPercentage={incomeStatement.incomeTaxExpenseRatioPercentage}
-            // key={incomeStatement.year}
-          />
-        ))}
+        <h2>Company Ticker: {this.props.companyTicker}</h2>
+        <div class="incomestatement">
+        <h4>Income Statements</h4>
+        <Table striped bordered responsive="sm">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        {/* <td>Ticker</td> */}
+                        <th>Profit Margin</th>
+                        <th>Net Income Margin</th>
+                        <th>SGA Margin</th>
+                        <th>R/D Margin</th>
+                        <th>Depreciation Margin</th>
+                        <th>Interest Expense Margin</th>
+                        <th>Income Tax Expense Margin</th>
+                        <th>EPS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {incomeStatements.map((incomeStatement) => {
+                        return (
+                            <tr key={incomeStatement.year}>
+                                <td>{incomeStatement.year}</td>
+                                <td>{incomeStatement.grossProfitRatioPercentage}%</td>
+                                <td>{incomeStatement.netIncomeRatioPercentage}%</td>
+                                <td>{incomeStatement.sgaRatioPercentage}%</td>
+                                <td>{incomeStatement.rAndDRatioPercentage}%</td>
+                                <td>{incomeStatement.depreciationRatioPercentage}%</td>
+                                <td>{incomeStatement.interestExpenseRatioPercentage}%</td>
+                                <td>{incomeStatement.incomeTaxExpenseRatioPercentage}%</td>
+                                <td>{incomeStatement.eps}</td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </Table>
+            </div>
       </div>
     );
   }

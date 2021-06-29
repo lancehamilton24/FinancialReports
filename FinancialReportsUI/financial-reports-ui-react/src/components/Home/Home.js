@@ -26,6 +26,7 @@ class Home extends React.Component {
 };
 
   render() {
+    const { companyTicker } = this.state;
     if(this.state.isTickerSubmitted === false)
     {
       return (
@@ -40,12 +41,14 @@ class Home extends React.Component {
     }
     return (
       <div>
+        <div>
         <h1>Fincancial Statement Analysis</h1>
         <form>
         <input type="text" placeholder="Enter Company Ticker" ref={this.tickerInput} required></input>
         <button type="button" onClick={this.submitHandler}>Get Data</button>
         </form>
-        <IncomeStatement companyTicker={this.state.companyTicker}></IncomeStatement>
+        </div>
+        <IncomeStatement companyTicker={companyTicker}></IncomeStatement>
       </div>
     );
   }
