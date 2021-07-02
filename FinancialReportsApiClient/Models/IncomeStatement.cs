@@ -9,6 +9,9 @@ namespace FinancialReportsApiClient.Models
 {
     public class IncomeStatement
     {
+        //private static int id = 1;
+        //public int Id { get { return id++; } }
+
         [JsonProperty("date")]
         public DateTimeOffset Date { get; set; }
 
@@ -110,6 +113,8 @@ namespace FinancialReportsApiClient.Models
 
         [JsonProperty("finalLink")]
         public Uri FinalLink { get; set; }
+
+        public string Year { get { return Date.Year.ToString(); } }
 
         public double GrossProfitRatioPercentage { get { return CalculateGrossProfitRatioPercentage(); } }
 

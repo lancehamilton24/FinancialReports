@@ -1,5 +1,6 @@
 import React from 'react';
 import IncomeStatement from '../IncomeStatement/IncomeStatement';
+import 'bootstrap/dist/css/bootstrap.css';
 import './Home.css';
 
 class Home extends React.Component {
@@ -25,12 +26,13 @@ class Home extends React.Component {
 };
 
   render() {
+    const { companyTicker } = this.state;
     if(this.state.isTickerSubmitted === false)
     {
       return (
         <div>
           <h1>Fincancial Statement Analysis</h1>
-          <form onSubmit={this.submitHandler}>
+          <form>
           <input type="text" placeholder="Enter Company Ticker" ref={this.tickerInput} required></input>
           <button type="button" onClick={this.submitHandler}>Get Data</button>
           </form>
@@ -39,12 +41,14 @@ class Home extends React.Component {
     }
     return (
       <div>
+        <div>
         <h1>Fincancial Statement Analysis</h1>
-        <form onSubmit={this.submitHandler}>
+        <form>
         <input type="text" placeholder="Enter Company Ticker" ref={this.tickerInput} required></input>
-        <button type="button">Get Data</button>
+        <button type="button" onClick={this.submitHandler}>Get Data</button>
         </form>
-        <IncomeStatement companyTicker={this.state.companyTicker}></IncomeStatement>
+        </div>
+        <IncomeStatement companyTicker={companyTicker}></IncomeStatement>
       </div>
     );
   }

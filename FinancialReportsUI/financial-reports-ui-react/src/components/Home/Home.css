@@ -1,0 +1,9 @@
+.form-control{
+  text-align: center;
+  align: center;
+  display: inline-block;
+  float: none;
+}
+.home {
+  justify-content: center;
+}
