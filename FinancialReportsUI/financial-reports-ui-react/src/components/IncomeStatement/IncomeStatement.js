@@ -27,9 +27,8 @@ class IncomeStatement extends React.Component {
     const { incomeStatements } = this.state;
     return (
       <div className="container">
-        <h2>Company Ticker: {this.props.companyTicker}</h2>
         <div class="incomestatement">
-        <h4>Income Statements</h4>
+        <h4>{this.props.companyTicker} Income Statements</h4>
         <Table striped bordered responsive="sm">
                 <thead>
                     <tr>
