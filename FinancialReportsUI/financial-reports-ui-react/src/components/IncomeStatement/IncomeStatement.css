@@ -1,7 +1,3 @@
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
 thead{
   text-align: center;
 }
@@ -12,10 +8,26 @@ td {
   background-color: black;
   color: white;
 } */
-tr:nth-child(even) {background-color: #f2f2f2;}
 
 .container{
-  margin: 20px;
+  margin: 4%;
+}
+/* 
+Table{
+  width: 50px;
+} */
+
+/* .incomestatement{
+  width: 50%;
+  text-align: center;
+} */
+.incomestatement {
+ height: 300px;
+ width: 40%;
+ padding: 0px;
+ margin: 0px auto 0px auto;
+ overflow: auto;
+ border: 1px solid black;
 }
 
 /* div.incomestatement {
