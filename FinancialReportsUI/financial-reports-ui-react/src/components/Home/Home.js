@@ -1,4 +1,5 @@
 import React from 'react';
+import CompanyProfile from '../CompanyProfile/CompanyProfile';
 import IncomeStatement from '../IncomeStatement/IncomeStatement';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Home.css';
@@ -25,6 +26,12 @@ class Home extends React.Component {
     }
 };
 
+newGroupSearch = (e) => {
+  e.preventDefault();
+  this.setState({companyTicker: ''});
+  this.setState({isTickerSubmitted: false});
+};
+
   render() {
     const { companyTicker } = this.state;
     if(this.state.isTickerSubmitted === false)
@@ -41,14 +48,15 @@ class Home extends React.Component {
     }
     return (
       <div>
-        <div>
-        <h1>Fincancial Statement Analysis</h1>
-        <form>
-        <input type="text" placeholder="Enter Company Ticker" ref={this.tickerInput} required></input>
-        <button type="button" onClick={this.submitHandler}>Get Data</button>
-        </form>
+        <button type="button" onClick={this.newGroupSearch}>Search New Group</button>
+        <div className="panels">
+          <div className="panel-companyprofile">
+          <CompanyProfile companyTicker={companyTicker}></CompanyProfile>
+          </div>
+          <div className="panel-financialstatements">
+          <IncomeStatement companyTicker={companyTicker}></IncomeStatement>
+          </div>
         </div>
-        <IncomeStatement companyTicker={companyTicker}></IncomeStatement>
       </div>
     );
   }
