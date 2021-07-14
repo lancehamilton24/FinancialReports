@@ -1,15 +1,15 @@
 import axios from 'axios';
 
- const getRequest = companyTicker => new Promise((resolve, reject) => {
+ const getAllIncomeStatements = companyTicker => new Promise((resolve, reject) => {
    axios
      .get(`https://localhost:44346/api/FinancialStatements/incomestatements/${companyTicker}`)
      .then((res) => {
-        const products = res.data;
-       resolve(products);
+        const incomeStatements = res.data;
+       resolve(incomeStatements);
      })
      .catch(err => reject(err));
  });
 
 export default {
-  getRequest,
+  getAllIncomeStatements,
 };

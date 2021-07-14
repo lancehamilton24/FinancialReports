@@ -17,6 +17,9 @@
   text-align: center;
 }
 
-.panels-financialstatments{
+/* .panel-financialstatements{
   display: flex;
-}
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+} */

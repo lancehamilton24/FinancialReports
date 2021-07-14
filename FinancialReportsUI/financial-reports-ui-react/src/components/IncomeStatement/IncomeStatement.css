@@ -1,17 +1,17 @@
-thead{
+/* thead{
   text-align: center;
 }
 td {
   text-align: left;
-}
+} */
 /* th {
   background-color: black;
   color: white;
 } */
-
+/* 
 .container{
   margin: 4%;
-}
+} */
 /* 
 Table{
   width: 50px;
@@ -23,11 +23,11 @@ Table{
 } */
 .incomestatement {
  height: 300px;
- width: 40%;
+ /* width: 70%; */
  padding: 0px;
- margin: 0px auto 0px auto;
  overflow: auto;
  border: 1px solid black;
+ margin: 2%;
 }
 
 /* div.incomestatement {
