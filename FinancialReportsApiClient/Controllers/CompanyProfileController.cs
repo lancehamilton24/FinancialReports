@@ -18,7 +18,7 @@ namespace FinancialReportsApiClient.Controllers
     public class CompanyProfileController : Controller
     {
          [HttpGet("companyprofile/{companyTicker}")]
-         public async Task<List<CompanyProfile>> GetAllIncomeStatements(string companyTicker)
+         public async Task<List<CompanyProfile>> GetCompanyProfile(string companyTicker)
          {
              List<CompanyProfile> companyProfile;
              var client = new HttpClient();
@@ -26,7 +26,7 @@ namespace FinancialReportsApiClient.Controllers
              client.DefaultRequestHeaders.Accept.Clear();
              client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
              //GET Method  
-             HttpResponseMessage response = await client.GetAsync($"api/v3/profile/{companyTicker}?limit=120&apikey=be1ce41dccee923dcd1484989bc6384b");
+             HttpResponseMessage response = await client.GetAsync($"api/v3/quote/{companyTicker}?limit=120&apikey=be1ce41dccee923dcd1484989bc6384b");
 
              var companyProfileJSON = await response.Content.ReadAsStringAsync();
             companyProfile = JsonConvert.DeserializeObject<List<CompanyProfile>>(companyProfileJSON);

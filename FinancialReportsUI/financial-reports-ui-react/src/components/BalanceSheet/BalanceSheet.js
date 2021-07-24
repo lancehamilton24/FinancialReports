@@ -26,33 +26,50 @@ export default class BalanceSheet extends Component {
     const { balanceSheets } = this.state;
     return (
         <div class="balancesheet">
-          {/* <Table striped bordered responsive="sm">
+          <Table striped bordered responsive="sm">
             <thead>
               <tr>
                 <th>Year</th>
-                <th>Revenue</th>
-                <th>Gross Profit</th>
-                <th>Profit Margin</th>
-                <th>Net Income</th>
-                <th>Net Income Margin</th>
-                <th>Operating Expense</th>
-                <th>SGA Margin</th>
-                <th>R/D Margin</th>
-                <th>Depreciation Margin</th>
-                <th>Interest Expense Margin</th>
-                <th>EPS</th>
+                <th>Cash/Equivalents</th>
+                <th>Inventory</th>
+                <th>Property/Plant/Equipment</th>
+                <th>Goodwill</th>
+                <th>Intangible Assets</th>
+                <th>Long-Term Investments</th>
+                <th>Short-Term Debt</th>
+                <th>Long-Term Debt</th>
+                <th>Total Assets</th>
+                <th>Total Liabilities</th>
+                <th>Net Worth/Shareholders' Equity</th>
+                <th>Retained Earnings</th>
+                <th>Curr Assets to Liabilities Ratio</th>
+                <th>Debt To Shareholders' Equity</th>
               </tr>
             </thead>
             <tbody>
               {balanceSheets.map((balanceSheet) => {
                 return (
-                  <tr key={incomeStatement.year}>
-                    <td>{incomeStatement.year}</td>
+                  <tr key={balanceSheet.year}>
+                    <td>{balanceSheet.year}</td>
+                    <td>{balanceSheet.cashAndCashEquivalents.toLocaleString()}</td>
+                    <td>{balanceSheet.inventory.toLocaleString()}</td>
+                    <td>{balanceSheet.propertyPlantEquipmentNet.toLocaleString()}</td>
+                    <td>{balanceSheet.goodwill.toLocaleString()}</td>
+                    <td>{balanceSheet.intangibleAssets.toLocaleString()}</td>
+                    <td>{balanceSheet.longTermInvestments.toLocaleString()}</td>
+                    <td>{balanceSheet.shortTermDebt.toLocaleString()}</td>
+                    <td>{balanceSheet.longTermDebt.toLocaleString()}</td>
+                    <td>{balanceSheet.totalAssets.toLocaleString()}</td>
+                    <td>{balanceSheet.totalLiabilities.toLocaleString()}</td>
+                    <td>{balanceSheet.totalStockholdersEquity.toLocaleString()}</td>
+                    <td>{balanceSheet.retainedEarnings.toLocaleString()}</td>
+                    <td>{balanceSheet.currAssetsToLiabilitiesRatio}</td>
+                    <td>{balanceSheet.debtToShareholdersEquityRatio}</td>
                   </tr>
                 );
               })}
             </tbody>
-          </Table> */}
+          </Table>
         </div>
     );
   }
