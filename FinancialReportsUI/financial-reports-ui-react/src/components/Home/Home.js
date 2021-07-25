@@ -3,17 +3,24 @@ import CompanyProfile from '../CompanyProfile/CompanyProfile';
 import IncomeStatement from '../IncomeStatement/IncomeStatement';
 import BalanceSheet from '../BalanceSheet/BalanceSheet';
 import 'bootstrap/dist/css/bootstrap.css';
+import incomeStatementRequest from '../../helpers/data/incomeStatementRequest';
 import './Home.css';
 
 class Home extends React.Component {
-
-  state = {
-    companyTicker: '',
-    isTickerSubmitted: false,
+  constructor(props) {
+    super(props);
+    this.state = 
+    {
+      companyTicker: '',
+      isTickerSubmitted: false,
+      financialStatements: []
+    };
   }
 
-  componentDidMount() {
-
+  getAllFinancialStatements = (companyTicker) => {
+    incomeStatementRequest.getAllFinancialStatements(companyTicker).then((financialStatements) => {
+      this.setState({ financialStatements });
+    })
   }
 
   tickerInput = React.createRef();
@@ -22,8 +29,9 @@ class Home extends React.Component {
     e.preventDefault();
     this.setState({ companyTicker: this.tickerInput.current.value });
     if (this.tickerInput.current.value !== null) {
+      this.getAllFinancialStatements(this.tickerInput.current.value);
       this.setState({ isTickerSubmitted: true });
-    }
+    } 
   };
 
   newGroupSearch = (e) => {
@@ -33,7 +41,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { companyTicker } = this.state;
+    const { companyTicker, financialStatements } = this.state;
     if (this.state.isTickerSubmitted === false) {
       return (
         <div>
@@ -54,9 +62,9 @@ class Home extends React.Component {
           </div>
           <div className="panel-financialstatements">
             <h6>Income Statements</h6>
-            <IncomeStatement companyTicker={companyTicker}></IncomeStatement>
+            <IncomeStatement incomeStatements={financialStatements.incomeStatement}></IncomeStatement>
             <h6>Balance Sheets</h6>
-            <BalanceSheet companyTicker={companyTicker}></BalanceSheet>
+            <BalanceSheet balanceSheets={financialStatements.balanceSheet}></BalanceSheet>
           </div>
         </div>
       </div>

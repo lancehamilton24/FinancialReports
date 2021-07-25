@@ -144,10 +144,33 @@ namespace FinancialReportsApiClient.Models
         [JsonProperty("netDebt")]
         public long NetDebt { get; set; }
 
+        public double NetReceivablesRatioPercentage { get; set; }
+
         [JsonProperty("link")]
         public Uri Link { get; set; }
 
         [JsonProperty("finalLink")]
         public Uri FinalLink { get; set; }
+
+        public string Year { get { return Date.Year.ToString(); } }
+
+        public double CurrAssetsToLiabilitiesRatio { get { return CalculateCurrAssetsToLiabilitiesRatio(); } }
+
+        public double DebtToShareholdersEquityRatio { get { return CalculateDebtToShareholdersEquityRatio(); } }
+        //private double CalculateNetReceivablesRatioPercentage()
+        //{
+        //    double incomeTax = Math.Round(((double)NetReceivables / (double)Revenue) * 100);
+        //    return incomeTax;
+        //}
+        private double CalculateCurrAssetsToLiabilitiesRatio()
+        {
+            double currAssetsToLiabilitiesRatio = Math.Round((double)TotalCurrentAssets / (double)TotalCurrentLiabilities);
+            return currAssetsToLiabilitiesRatio;
+        }
+        private double CalculateDebtToShareholdersEquityRatio()
+        {
+            double debtToShareholdersEquityRatio = Math.Round((double)TotalLiabilities / (double)TotalStockholdersEquity);
+            return debtToShareholdersEquityRatio;
+        }
     }
 }

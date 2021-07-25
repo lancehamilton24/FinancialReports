@@ -31,6 +31,18 @@ namespace FinancialReportsApiClient.Controllers
                 return incomeStatements;
         }
 
+        [HttpGet("financialstatements/{companyTicker}")]
+        public async Task<FinancialStatement> GetAllFinancialStatements(string companyTicker)
+        {
+            FinancialStatement financialStatements;
+            financialStatements = new FinancialStatement();
+            //financialStatements.CompanyProfile = await GetCompanyProfile(companyTicker);
+            financialStatements.IncomeStatement = await GetAllIncomeStatements(companyTicker);
+            financialStatements.BalanceSheet = await GetAllBalanceSheets(companyTicker);
+            financialStatements.CalculateFinancialSheetRatios();
+            return financialStatements;
+        }
+
         [HttpGet("balancesheets/{companyTicker}")]
         public async Task<List<BalanceSheet>> GetAllBalanceSheets(string companyTicker)
         {
@@ -45,5 +57,21 @@ namespace FinancialReportsApiClient.Controllers
             balanceSheets = JsonConvert.DeserializeObject<List<BalanceSheet>>(balanceSheetJSON);
             return balanceSheets;
         }
+
+        [HttpGet("companyprofile/{companyTicker}")]
+         public async Task<List<CompanyProfile>> GetCompanyProfile(string companyTicker)
+         {
+             List<CompanyProfile> companyProfile;
+             var client = new HttpClient();
+             client.BaseAddress = new Uri("https://financialmodelingprep.com/");
+             client.DefaultRequestHeaders.Accept.Clear();
+             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+             //GET Method  
+             HttpResponseMessage response = await client.GetAsync($"api/v3/quote/{companyTicker}?limit=120&apikey=be1ce41dccee923dcd1484989bc6384b");
+
+             var companyProfileJSON = await response.Content.ReadAsStringAsync();
+            companyProfile = JsonConvert.DeserializeObject<List<CompanyProfile>>(companyProfileJSON);
+             return companyProfile;
+         }
     }
 }

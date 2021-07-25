@@ -8,9 +8,9 @@ export class CompanyProfile extends React.Component {
     companyProfile: []
   }
 
-  componentDidUpdate() {
-    this.getCompanyProfile(this.props.companyTicker)
-  }
+  // componentDidUpdate() {
+  //   this.getCompanyProfile(this.props.companyTicker)
+  // }
 
   componentDidMount(){
     this.getCompanyProfile(this.props.companyTicker)
@@ -34,6 +34,9 @@ export class CompanyProfile extends React.Component {
                         <th>Company Name</th>
                         <th>Price</th>
                         <th>Market Cap</th>
+                        <th>Year Low</th>
+                        <th>Year High</th>
+                        <th>PE</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,9 +44,12 @@ export class CompanyProfile extends React.Component {
                         return (
                             <tr key={companyProfile.symbol}>
                                 <td>{companyProfile.symbol}</td>
-                                <td>{companyProfile.companyName}</td>
-                                <td>{companyProfile.price.toLocaleString()}</td>
-                                <td>{companyProfile.mktCap.toLocaleString()}</td>
+                                <td>{companyProfile.name}</td>
+                                <td>{companyProfile.price.toLocaleString(2)}</td>
+                                <td>{companyProfile.marketCap.toLocaleString()}</td>
+                                <td>{companyProfile.yearLow.toLocaleString(2)}</td>
+                                <td>{companyProfile.yearHigh.toLocaleString(2)}</td>
+                                <td>{companyProfile.pe.toFixed(2)}</td>
                             </tr>
                         );
                     })}
