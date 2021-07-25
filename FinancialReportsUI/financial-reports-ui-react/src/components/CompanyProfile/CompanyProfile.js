@@ -8,9 +8,9 @@ export class CompanyProfile extends React.Component {
     companyProfile: []
   }
 
-  componentDidUpdate() {
-    this.getCompanyProfile(this.props.companyTicker)
-  }
+  // componentDidUpdate() {
+  //   this.getCompanyProfile(this.props.companyTicker)
+  // }
 
   componentDidMount(){
     this.getCompanyProfile(this.props.companyTicker)

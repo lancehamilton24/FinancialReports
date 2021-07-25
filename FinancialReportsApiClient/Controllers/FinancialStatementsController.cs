@@ -36,10 +36,10 @@ namespace FinancialReportsApiClient.Controllers
         {
             FinancialStatement financialStatements;
             financialStatements = new FinancialStatement();
-            financialStatements.CompanyProfile = await GetCompanyProfile(companyTicker);
+            //financialStatements.CompanyProfile = await GetCompanyProfile(companyTicker);
             financialStatements.IncomeStatement = await GetAllIncomeStatements(companyTicker);
             financialStatements.BalanceSheet = await GetAllBalanceSheets(companyTicker);
-            financialStatements.CalculateNetReceivablesRatioPercentage();
+            financialStatements.CalculateFinancialSheetRatios();
             return financialStatements;
         }
 

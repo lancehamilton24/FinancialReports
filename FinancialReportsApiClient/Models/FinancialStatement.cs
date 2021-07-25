@@ -9,29 +9,25 @@ namespace FinancialReportsApiClient.Models
 {
     public class FinancialStatement
     {
-        public List<CompanyProfile> CompanyProfile { get; set; }
         public List<IncomeStatement> IncomeStatement { get; set; }
         public List<BalanceSheet> BalanceSheet { get; set; }
-        
-        //private void CalculatePercentage()
-        //{
-        //    foreach (var iStatement in IncomeStatement)
-        //    {
-        //        CalculateNetReceivablesRatioPercentage(iStatement);
-        //    }
-        //}
 
-        public void CalculateNetReceivablesRatioPercentage()
+        public void CalculateFinancialSheetRatios()
+        {
+            foreach (var bStatement in BalanceSheet)
+            {
+                CalculateNetReceivablesRatioPercentage(bStatement);
+            }
+        }
+
+        private void CalculateNetReceivablesRatioPercentage(BalanceSheet balanceSheet)
         {
             try
             {
-                foreach (var iStatement in IncomeStatement)
+                foreach (var iStatement in IncomeStatement.Where(x => x.Year == balanceSheet.Year))
                 {
-                    foreach (var bStatement in BalanceSheet.Where(x => x.Year == iStatement.Year))
-                    {
-                        double netReceivablesRatio = Math.Round(((double)bStatement.NetReceivables / (double)iStatement.Revenue) * 100);
-                        bStatement.NetReceivablesRatioPercentage = netReceivablesRatio;
-                    }
+                        double netReceivablesRatio = Math.Round(((double)balanceSheet.NetReceivables / (double)iStatement.Revenue) * 100);
+                        balanceSheet.NetReceivablesRatioPercentage = netReceivablesRatio;
                 }
             }
             catch
