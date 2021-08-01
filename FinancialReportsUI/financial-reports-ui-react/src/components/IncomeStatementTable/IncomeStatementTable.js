@@ -16,6 +16,7 @@ export default class IncomeStatementTable extends Component {
                 <th>Net Income</th>
                 <th>Net Income Margin</th>
                 <th>Operating Expense</th>
+                <th>Operating Expense Margin</th>
                 <th>SGA Margin</th>
                 <th>R/D Margin</th>
                 <th>Depreciation Margin</th>
@@ -34,6 +35,7 @@ export default class IncomeStatementTable extends Component {
                     <td>{incomeStatement.netIncome.toLocaleString()}</td>
                     <td>{incomeStatement.netIncomeRatioPercentage}%</td>
                     <td>{incomeStatement.operatingExpenses.toLocaleString()}</td>
+                    <td>{incomeStatement.operatingExpenseRatio}%</td>
                     <td>{incomeStatement.sgaRatioPercentage}%</td>
                     <td>{incomeStatement.rAndDRatioPercentage}%</td>
                     <td>{incomeStatement.depreciationRatioPercentage}%</td>

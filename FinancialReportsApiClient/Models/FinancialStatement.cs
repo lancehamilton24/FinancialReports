@@ -16,18 +16,52 @@ namespace FinancialReportsApiClient.Models
         {
             foreach (var bStatement in BalanceSheet)
             {
-                CalculateNetReceivablesRatioPercentage(bStatement);
+                CalculateNetReceivablesRatio(bStatement);
+                CalculateReturnOnAssetsRatio(bStatement);
+                CalculateReturnOnShareholdersEquityRatio(bStatement);
             }
         }
 
-        private void CalculateNetReceivablesRatioPercentage(BalanceSheet balanceSheet)
+        private void CalculateNetReceivablesRatio(BalanceSheet balanceSheet)
         {
             try
             {
                 foreach (var iStatement in IncomeStatement.Where(x => x.Year == balanceSheet.Year))
                 {
                         double netReceivablesRatio = Math.Round(((double)balanceSheet.NetReceivables / (double)iStatement.Revenue) * 100);
-                        balanceSheet.NetReceivablesRatioPercentage = netReceivablesRatio;
+                        balanceSheet.NetReceivablesRatio = netReceivablesRatio;
+                }
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        private void CalculateReturnOnAssetsRatio(BalanceSheet balanceSheet)
+        {
+            try
+            {
+                foreach (var iStatement in IncomeStatement.Where(x => x.Year == balanceSheet.Year))
+                {
+                    double returnOnAssetsRatio = Math.Round(((double)iStatement.NetIncome / (double)balanceSheet.TotalAssets) * 100);
+                    balanceSheet.ReturnOnAssetsRatio = returnOnAssetsRatio;
+                }
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        private void CalculateReturnOnShareholdersEquityRatio(BalanceSheet balanceSheet)
+        {
+            try
+            {
+                foreach (var iStatement in IncomeStatement.Where(x => x.Year == balanceSheet.Year))
+                {
+                    double returnOnShareholdersEquityRatio = Math.Round(((double)iStatement.NetIncome / (double)balanceSheet.TotalStockholdersEquity) * 100);
+                    balanceSheet.ReturnOnShareholdersEquityRatio = returnOnShareholdersEquityRatio;
                 }
             }
             catch
