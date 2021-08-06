@@ -117,7 +117,7 @@ namespace FinancialReportsApiClient.Models
 
         public double NetIncomeRatioPercentage { get { return CalculateNetIncomeRatioPercentage(); } }
 
-        public double SGARatioPercentage { get { return CalculateSGARatioPercentage(); } }
+        public double SgaRatioPercentage { get { return CalculateSGARatioPercentage(); } }
 
         public double RAndDRatioPercentage { get { return CalculateRAndDRatioPercentage(); } }
 
