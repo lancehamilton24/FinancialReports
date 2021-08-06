@@ -117,7 +117,7 @@ namespace FinancialReportsApiClient.Models
 
         public double NetIncomeRatioPercentage { get { return CalculateNetIncomeRatioPercentage(); } }
 
-        public double SGARatioPercentage { get { return CalculateSGARatioPercentage(); } }
+        public double SgaRatioPercentage { get { return CalculateSGARatioPercentage(); } }
 
         public double RAndDRatioPercentage { get { return CalculateRAndDRatioPercentage(); } }
 
@@ -126,6 +126,8 @@ namespace FinancialReportsApiClient.Models
         public double InterestExpenseRatioPercentage { get { return CalculateInterestRatioPercentage(); } }
 
         public double IncomeTaxExpenseRatioPercentage { get { return CalculateIncomeTaxRatioPercentage(); } }
+
+        public double OperatingExpenseRatio { get { return CalculateOperatingExpenseRatio(); } }
 
         private double CalculateGrossProfitRatioPercentage()
         {
@@ -144,6 +146,12 @@ namespace FinancialReportsApiClient.Models
             double sga = (((double)SellingAndMarketingExpenses + (double)GeneralAndAdministrativeExpenses) / (double)GrossProfit) * 100;
             sga = Math.Round(sga);
             return sga;
+        }
+        private double CalculateOperatingExpenseRatio()
+        {
+            double operatingExpenseMargin = ((double)OperatingExpenses / (double)GrossProfit) * 100;
+            operatingExpenseMargin = Math.Round(operatingExpenseMargin);
+            return operatingExpenseMargin;
         }
         private double CalculateRAndDRatioPercentage()
         {
