@@ -1,9 +1,25 @@
-.form-control{
+/* .form-control{
   text-align: center;
   align: center;
   display: inline-block;
   float: none;
 }
-.home {
+*/
+/* .home {
   justify-content: center;
+}  */
+
+/* .panels > div {
+  border: 1px solid black;
+} */
+
+.panels {
+  text-align: center;
 }
+
+/* .panel-financialstatements{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+} */
