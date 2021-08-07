@@ -10,8 +10,9 @@ namespace FinancialReportsGenerator.Models
     {
         public List<IncomeStatement> IncomeStatement { get; set; }
         public List<BalanceSheet> BalanceSheet { get; set; }
+        public CompanyProfile CompanyProfile { get; set; }
 
-        public void CalculateFinancialSheetRatios()
+        public async void CalculateFinancialSheetRatios()
         {
             foreach (var bStatement in BalanceSheet)
             {

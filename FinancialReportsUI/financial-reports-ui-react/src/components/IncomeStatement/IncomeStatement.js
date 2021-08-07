@@ -1,7 +1,6 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import IncomeStatementTable from '../IncomeStatementTable/IncomeStatementTable';
-import incomeStatementRequest from '../../helpers/data/incomeStatementRequest';
+import IncomeStatementTable from '../../helpers/statementTables/IncomeStatementTable/IncomeStatementTable';
 import './IncomeStatement.css';
 
 class IncomeStatement extends React.Component {

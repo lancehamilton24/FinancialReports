@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Table } from 'react-bootstrap';
-import BalanceSheetTable from '../BalanceSheetTable/BalanceSheetTable';
-import balanceSheetRequest from '../../helpers/data/balanceSheetRequest';
+import BalanceSheetTable from '../../helpers/statementTables/BalanceSheetTable/BalanceSheetTable';
 import './BalanceSheet.css';
 
 export default class BalanceSheet extends Component {
@@ -25,7 +24,7 @@ export default class BalanceSheet extends Component {
     return (
       <div class="balanceSheet">
       <Table striped bordered responsive="sm">
-        <h1>Income Statement Data Not Available</h1>
+        <h1>Balance Sheet Data Not Available</h1>
       </Table>
     </div>
     );

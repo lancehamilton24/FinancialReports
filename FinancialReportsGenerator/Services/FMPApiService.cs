@@ -122,11 +122,12 @@ namespace FinancialReportsGenerator.Services
             return balanceSheetList;
         }
 
-        public async Task<FinancialStatement> GetAllFinancialStatements(List<IncomeStatement> incomeStatements, List<BalanceSheet> balanceSheets)
+        public async Task<FinancialStatement> GetAllFinancialStatements(CompanyProfile companyProfile, List<IncomeStatement> incomeStatements, List<BalanceSheet> balanceSheets)
         {
             FinancialStatement financialStatements;
             financialStatements = new FinancialStatement()
             {
+                CompanyProfile = companyProfile,
                 IncomeStatement = incomeStatements,
                 BalanceSheet = balanceSheets
             };

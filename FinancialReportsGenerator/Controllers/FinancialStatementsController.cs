@@ -37,10 +37,11 @@ namespace FinancialReportsGenerator.Controllers
             _apiClient = new FMPApiClient();
             _apiService = new FMPApiService(_apiClient);
 
+            CompanyProfile companyProfile = await GetCompanyProfile(companyTicker);
             List<IncomeStatement> incomeStatements = await GetAllIncomeStatements(companyTicker);
             List<BalanceSheet> balanceSheets = await GetAllBalanceSheets(companyTicker);
 
-            var response = await _apiService.GetAllFinancialStatements(incomeStatements, balanceSheets);
+            var response = await _apiService.GetAllFinancialStatements(companyProfile, incomeStatements, balanceSheets);
             return response;
         }
         [HttpGet("incomestatements/{companyTicker}")]

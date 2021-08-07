@@ -57,10 +57,12 @@ class Home extends React.Component {
       <div>
         <button type="button" onClick={this.newGroupSearch}>Search New Group</button>
         <div className="panels">
-          <div className="panel-companyprofile">
-            <CompanyProfile companyTicker={companyTicker}></CompanyProfile>
-          </div>
+          {/* <div className="panel-companyprofile">
+          
+          </div> */}
           <div className="panel-financialstatements">
+            <h6>Company Profile</h6>
+            <CompanyProfile companyProfile={financialStatements.companyProfile}></CompanyProfile>
             <h6>Income Statements</h6>
             <IncomeStatement incomeStatements={financialStatements.incomeStatement}></IncomeStatement>
             <h6>Balance Sheets</h6>
