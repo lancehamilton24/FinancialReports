@@ -1,4 +1,4 @@
-using FinancialReportsApiClient.Controllers;
+using FinancialReportsGenerator.Controllers;
 using NUnit.Framework;
 
 namespace FinancialReportsApiUnitTests

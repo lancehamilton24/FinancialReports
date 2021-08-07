@@ -1,17 +1,15 @@
-﻿using FinancialReportsApiClient.JsonModels;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinancialReportsApiClient.Models
+namespace FinancialReportsGenerator.Models
 {
     public class FinancialStatement
     {
-        public List<IncomeStatementJson> IncomeStatement { get; set; }
-        public List<BalanceSheetJson> BalanceSheet { get; set; }
+        public List<IncomeStatement> IncomeStatement { get; set; }
+        public List<BalanceSheet> BalanceSheet { get; set; }
 
         public void CalculateFinancialSheetRatios()
         {
@@ -23,14 +21,14 @@ namespace FinancialReportsApiClient.Models
             }
         }
 
-        private void CalculateNetReceivablesRatio(BalanceSheetJson balanceSheet)
+        private void CalculateNetReceivablesRatio(BalanceSheet balanceSheet)
         {
             try
             {
                 foreach (var iStatement in IncomeStatement.Where(x => x.Year == balanceSheet.Year))
                 {
-                        double netReceivablesRatio = Math.Round(((double)balanceSheet.NetReceivables / (double)iStatement.Revenue) * 100);
-                        balanceSheet.NetReceivablesRatio = netReceivablesRatio;
+                    double netReceivablesRatio = Math.Round(((double)balanceSheet.NetReceivables / (double)iStatement.Revenue) * 100);
+                    balanceSheet.NetReceivablesRatio = netReceivablesRatio;
                 }
             }
             catch
@@ -39,7 +37,7 @@ namespace FinancialReportsApiClient.Models
             }
         }
 
-        private void CalculateReturnOnAssetsRatio(BalanceSheetJson balanceSheet)
+        private void CalculateReturnOnAssetsRatio(BalanceSheet balanceSheet)
         {
             try
             {
@@ -55,7 +53,7 @@ namespace FinancialReportsApiClient.Models
             }
         }
 
-        private void CalculateReturnOnShareholdersEquityRatio(BalanceSheetJson balanceSheet)
+        private void CalculateReturnOnShareholdersEquityRatio(BalanceSheet balanceSheet)
         {
             try
             {

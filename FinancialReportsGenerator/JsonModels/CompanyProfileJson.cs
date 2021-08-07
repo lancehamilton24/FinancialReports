@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinancialReportsApiClient.JsonModels
+namespace FinancialReportsGenerator.JsonModels
 {
     public class CompanyProfileJson
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinancialReportsApiClient.JsonModels
+namespace FinancialReportsGenerator.JsonModels
 {
     public class BalanceSheetJson
     {
@@ -151,26 +151,5 @@ namespace FinancialReportsApiClient.JsonModels
 
         [JsonProperty("finalLink")]
         public Uri FinalLink { get; set; }
-
-        public string Year { get { return Date.Year.ToString(); } }
-
-        public double CurrAssetsToLiabilitiesRatio { get { return CalculateCurrAssetsToLiabilitiesRatio(); } }
-
-        public double DebtToShareholdersEquityRatio { get { return CalculateDebtToShareholdersEquityRatio(); } }
-
-        public double ReturnOnAssetsRatio { get; set; }
-
-        public double ReturnOnShareholdersEquityRatio { get; set; }
-
-        private double CalculateCurrAssetsToLiabilitiesRatio()
-        {
-            double currAssetsToLiabilitiesRatio = Math.Round((double)TotalCurrentAssets / (double)TotalCurrentLiabilities);
-            return currAssetsToLiabilitiesRatio;
-        }
-        private double CalculateDebtToShareholdersEquityRatio()
-        {
-            double debtToShareholdersEquityRatio = ((double)TotalLiabilities / (double)TotalStockholdersEquity) * 100;
-            return debtToShareholdersEquityRatio;
-        }
     }
 }

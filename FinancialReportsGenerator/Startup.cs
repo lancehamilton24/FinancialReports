@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FinancialReportsApiClient
+namespace FinancialReportsGenerator
 {
     public class Startup
     {
@@ -45,7 +45,7 @@ namespace FinancialReportsApiClient
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FinancialReportsApiClient", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FinancialReportsGenerator", Version = "v1" });
             });
         }
 
@@ -57,7 +57,7 @@ namespace FinancialReportsApiClient
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FinancialReportsApiClient v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FinancialReportsGenerator v1"));
             }
 
             app.UseHttpsRedirection();
