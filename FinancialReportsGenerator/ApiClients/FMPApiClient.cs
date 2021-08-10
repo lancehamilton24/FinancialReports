@@ -24,7 +24,7 @@ namespace FinancialReportsGenerator.ApiClients
             HttpResponseMessage response = await client.GetAsync($"api/v3/quote/{companyTicker}?limit=120&apikey=be1ce41dccee923dcd1484989bc6384b");
 
             var companyProfileJSON = await response.Content.ReadAsStringAsync();
-            companyProfile = JsonConvert.DeserializeObject<List<CompanyProfileJson>>(companyProfileJSON);
+             companyProfile = JsonConvert.DeserializeObject<List<CompanyProfileJson>>(companyProfileJSON);
  
             return new Tuple<HttpStatusCode, string, List<CompanyProfileJson>>(HttpStatusCode.OK, "success", companyProfile);
         }

@@ -49,13 +49,28 @@ namespace FinancialReportsGenerator.Models
 
         private double CalculateCurrAssetsToLiabilitiesRatio()
         {
-            double currAssetsToLiabilitiesRatio = Math.Round((double)TotalCurrentAssets / (double)TotalCurrentLiabilities);
-            return currAssetsToLiabilitiesRatio;
+            if (TotalCurrentLiabilities > 0)
+            {
+                double currAssetsToLiabilitiesRatio = Math.Round((double)TotalCurrentAssets / (double)TotalCurrentLiabilities);
+                return currAssetsToLiabilitiesRatio;
+            }
+            else
+            {
+                return 0;
+            }
         }
+
         private double CalculateDebtToShareholdersEquityRatio()
         {
-            double debtToShareholdersEquityRatio = ((double)TotalLiabilities / (double)TotalStockholdersEquity) * 100;
-            return debtToShareholdersEquityRatio;
+            if (TotalStockholdersEquity > 0)
+            {
+                double debtToShareholdersEquityRatio = ((double)TotalLiabilities / (double)TotalStockholdersEquity) * 100;
+                return debtToShareholdersEquityRatio;
+            }
+            else
+            {
+                return 0;
+            }   
         }
     }
 }

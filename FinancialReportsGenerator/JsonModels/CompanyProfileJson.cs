@@ -63,7 +63,7 @@ namespace FinancialReportsGenerator.JsonModels
         [JsonProperty("eps")]
         public double Eps { get; set; }
 
-        [JsonProperty("pe")]
+        [JsonProperty("pe", NullValueHandling = NullValueHandling.Ignore)]
         public double Pe { get; set; }
 
         [JsonProperty("earningsAnnouncement")]
