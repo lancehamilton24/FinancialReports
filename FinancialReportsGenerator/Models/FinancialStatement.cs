@@ -28,8 +28,11 @@ namespace FinancialReportsGenerator.Models
             {
                 foreach (var iStatement in IncomeStatement.Where(x => x.Year == balanceSheet.Year))
                 {
-                    double netReceivablesRatio = Math.Round(((double)balanceSheet.NetReceivables / (double)iStatement.Revenue) * 100);
-                    balanceSheet.NetReceivablesRatio = netReceivablesRatio;
+                    if ((double)iStatement.Revenue > 0)
+                    {
+                        double netReceivablesRatio = Math.Round(((double)balanceSheet.NetReceivables / (double)iStatement.Revenue) * 100);
+                        balanceSheet.NetReceivablesRatio = netReceivablesRatio;
+                    }   
                 }
             }
             catch
@@ -44,8 +47,11 @@ namespace FinancialReportsGenerator.Models
             {
                 foreach (var iStatement in IncomeStatement.Where(x => x.Year == balanceSheet.Year))
                 {
-                    double returnOnAssetsRatio = Math.Round(((double)iStatement.NetIncome / (double)balanceSheet.TotalAssets) * 100);
-                    balanceSheet.ReturnOnAssetsRatio = returnOnAssetsRatio;
+                    if ((double)balanceSheet.TotalAssets > 0)
+                    {
+                        double returnOnAssetsRatio = Math.Round(((double)iStatement.NetIncome / (double)balanceSheet.TotalAssets) * 100);
+                        balanceSheet.ReturnOnAssetsRatio = returnOnAssetsRatio;
+                    }       
                 }
             }
             catch
@@ -60,8 +66,11 @@ namespace FinancialReportsGenerator.Models
             {
                 foreach (var iStatement in IncomeStatement.Where(x => x.Year == balanceSheet.Year))
                 {
-                    double returnOnShareholdersEquityRatio = Math.Round(((double)iStatement.NetIncome / (double)balanceSheet.TotalStockholdersEquity) * 100);
-                    balanceSheet.ReturnOnShareholdersEquityRatio = returnOnShareholdersEquityRatio;
+                    if ((double)balanceSheet.TotalStockholdersEquity > 0)
+                    {
+                        double returnOnShareholdersEquityRatio = Math.Round(((double)iStatement.NetIncome / (double)balanceSheet.TotalStockholdersEquity) * 100);
+                        balanceSheet.ReturnOnShareholdersEquityRatio = returnOnShareholdersEquityRatio;
+                    }
                 }
             }
             catch
