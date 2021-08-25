@@ -31,7 +31,7 @@ namespace FinancialReportsGenerator.Models
                 {
                     if ((double)iStatement.Revenue > 0)
                     {
-                        double netReceivablesRatio = Math.Round(((double)balanceSheet.NetReceivables / (double)iStatement.Revenue) * 100);
+                        double netReceivablesRatio = ((double)balanceSheet.NetReceivables / (double)iStatement.Revenue) * 100;
                         balanceSheet.NetReceivablesRatio = netReceivablesRatio;
                     }   
                 }

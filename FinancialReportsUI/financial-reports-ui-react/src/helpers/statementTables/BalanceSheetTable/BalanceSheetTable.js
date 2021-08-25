@@ -49,7 +49,7 @@ export default class BalanceSheetTable extends Component {
                     <td>{balanceSheet.totalLiabilities.toLocaleString()}</td>
                     <td>{balanceSheet.totalStockholdersEquity.toLocaleString()}</td>
                     <td>{balanceSheet.retainedEarnings.toLocaleString()}</td>
-                    <td>{balanceSheet.netReceivablesRatio}%</td>
+                    <td>{balanceSheet.netReceivablesRatio.toFixed(2)}%</td>
                     <td>{balanceSheet.currAssetsToLiabilitiesRatio}%</td>
                     <td>{balanceSheet.debtToShareholdersEquityRatio.toFixed(2)}%</td>
                     <td>{balanceSheet.returnOnAssetsRatio}%</td>
