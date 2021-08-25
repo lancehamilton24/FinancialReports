@@ -2,6 +2,7 @@ import React from 'react';
 import CompanyProfile from '../CompanyProfile/CompanyProfile';
 import IncomeStatement from '../IncomeStatement/IncomeStatement';
 import BalanceSheet from '../BalanceSheet/BalanceSheet';
+import CashFlowStatement from '../CashFlowStatement/CashFlowStatement';
 import 'bootstrap/dist/css/bootstrap.css';
 import incomeStatementRequest from '../../helpers/data/incomeStatementRequest';
 import './Home.css';
@@ -41,7 +42,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { companyTicker, financialStatements } = this.state;
+    const { financialStatements } = this.state;
     if (this.state.isTickerSubmitted === false) {
       return (
         <div>
@@ -67,6 +68,8 @@ class Home extends React.Component {
             <IncomeStatement incomeStatements={financialStatements.incomeStatement}></IncomeStatement>
             <h6>Balance Sheets</h6>
             <BalanceSheet balanceSheets={financialStatements.balanceSheet}></BalanceSheet>
+            <h6>Cash Flow Statements</h6>
+            <CashFlowStatement cashFlowStatements={financialStatements.cashFlowStatement}></CashFlowStatement>
           </div>
         </div>
       </div>
