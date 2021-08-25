@@ -21,13 +21,17 @@ namespace FinancialReportsGenerator.Controllers
     {
         FMPApiClient _apiClient;
         FMPApiService _apiService;
+        CompanyProfileService _profileService;
+        IncomeStatementService _incomeStatementService;
+        BalanceSheetService _balanceSheetService;
+        CashFlowStatementService _cashFlowService;
 
         [HttpGet("companyprofile/{companyTicker}")]
         public async Task<CompanyProfile> GetCompanyProfile(string companyTicker)
         {
             _apiClient = new FMPApiClient();
-            _apiService = new FMPApiService(_apiClient);
-            var response = await _apiService.GetCompanyProfile(companyTicker);
+            _profileService = new CompanyProfileService(_apiClient);
+            var response = await _profileService.GetCompanyProfile(companyTicker);
             return response;
         }
 
@@ -40,16 +44,17 @@ namespace FinancialReportsGenerator.Controllers
             CompanyProfile companyProfile = await GetCompanyProfile(companyTicker);
             List<IncomeStatement> incomeStatements = await GetAllIncomeStatements(companyTicker);
             List<BalanceSheet> balanceSheets = await GetAllBalanceSheets(companyTicker);
+            List<CashFlowStatement> cashFlowStatements = await GetAllCashFlowStatements(companyTicker);
 
-            var response = await _apiService.GetAllFinancialStatements(companyProfile, incomeStatements, balanceSheets);
+            var response = await _apiService.GetAllFinancialStatements(companyProfile, incomeStatements, balanceSheets, cashFlowStatements);
             return response;
         }
         [HttpGet("incomestatements/{companyTicker}")]
         public async Task<List<IncomeStatement>> GetAllIncomeStatements(string companyTicker)
         {
             _apiClient = new FMPApiClient();
-            _apiService = new FMPApiService(_apiClient);
-            var response = await _apiService.GetAllIncomeStatements(companyTicker);
+            _incomeStatementService = new IncomeStatementService(_apiClient);
+            var response = await _incomeStatementService.GetAllIncomeStatements(companyTicker);
             return response;
         }
 
@@ -57,8 +62,17 @@ namespace FinancialReportsGenerator.Controllers
         public async Task<List<BalanceSheet>> GetAllBalanceSheets(string companyTicker)
         {
             _apiClient = new FMPApiClient();
-            _apiService = new FMPApiService(_apiClient);
-            var response = await _apiService.GetAllBalanceSheets(companyTicker);
+            _balanceSheetService = new BalanceSheetService(_apiClient);
+            var response = await _balanceSheetService.GetAllBalanceSheets(companyTicker);
+            return response;
+        }
+
+        [HttpGet("cashflowstatements/{companyTicker}")]
+        public async Task<List<CashFlowStatement>> GetAllCashFlowStatements(string companyTicker)
+        {
+            _apiClient = new FMPApiClient();
+            _cashFlowService = new CashFlowStatementService(_apiClient);
+            var response = await _cashFlowService.GetAllCashFlowStatements(companyTicker);
             return response;
         }
     }

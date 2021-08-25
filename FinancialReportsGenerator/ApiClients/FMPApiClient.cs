@@ -24,7 +24,7 @@ namespace FinancialReportsGenerator.ApiClients
             HttpResponseMessage response = await client.GetAsync($"api/v3/quote/{companyTicker}?limit=120&apikey=be1ce41dccee923dcd1484989bc6384b");
 
             var companyProfileJSON = await response.Content.ReadAsStringAsync();
-            companyProfile = JsonConvert.DeserializeObject<List<CompanyProfileJson>>(companyProfileJSON);
+             companyProfile = JsonConvert.DeserializeObject<List<CompanyProfileJson>>(companyProfileJSON);
  
             return new Tuple<HttpStatusCode, string, List<CompanyProfileJson>>(HttpStatusCode.OK, "success", companyProfile);
         }
@@ -55,6 +55,20 @@ namespace FinancialReportsGenerator.ApiClients
             var balanceSheetJSON = await response.Content.ReadAsStringAsync();
             balanceSheets = JsonConvert.DeserializeObject<List<BalanceSheetJson>>(balanceSheetJSON);
             return new Tuple<HttpStatusCode, string, List<BalanceSheetJson>>(HttpStatusCode.OK, "success", balanceSheets);
+        }
+
+        public async Task<Tuple<HttpStatusCode, string, List<CashFlowStatementJson>>> GetAllCashFlowStatements(string companyTicker)
+        {
+            List<CashFlowStatementJson> cashFlowStatements;
+            var client = new HttpClient();
+            client.BaseAddress = new Uri("https://financialmodelingprep.com/");
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //GET Method  
+            HttpResponseMessage response = await client.GetAsync($"api/v3/cash-flow-statement/{companyTicker}?limit=120&apikey=be1ce41dccee923dcd1484989bc6384b");
+            var cashFlowStatmentJSON = await response.Content.ReadAsStringAsync();
+            cashFlowStatements = JsonConvert.DeserializeObject<List<CashFlowStatementJson>>(cashFlowStatmentJSON);
+            return new Tuple<HttpStatusCode, string, List<CashFlowStatementJson>>(HttpStatusCode.OK, "success", cashFlowStatements);
         }
     }
 }
