@@ -25,7 +25,8 @@ namespace FinancialReportsGenerator.Services
                 CompanyProfile = companyProfile,
                 IncomeStatement = incomeStatements,
                 BalanceSheet = balanceSheets,
-                CashFlowStatement =  cashFlowStatements
+                CashFlowStatement = cashFlowStatements,
+                Ratios = new List<CompetitiveAdvantageRatios>()
             };
 
             financialStatements.CalculateFinancialSheetRatios();

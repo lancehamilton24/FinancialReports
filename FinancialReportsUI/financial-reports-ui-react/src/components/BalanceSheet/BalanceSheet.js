@@ -13,8 +13,8 @@ export default class BalanceSheet extends Component {
     return {balanceSheets: props.balanceSheets };
   }
 
-  render() {
-    const { balanceSheets } = this.state;
+  render(props) {
+    const { balanceSheets } = props.balanceSheets;
     if (balanceSheets != null)
     {
     return (
