@@ -13,7 +13,7 @@ namespace FinancialReportsGenerator.Models
         public long Revenue { get; set; }
         public long CostOfRevenue { get; set; }
         public long GrossProfit { get; set; }
-        public double GrossProfitRatio { get; set; }
+        public double GrossProfitMargin { get; set; }
         public long ResearchAndDevelopmentExpenses { get; set; }
         public long GeneralAndAdministrativeExpenses { get; set; }
         public long SellingAndMarketingExpenses { get; set; }
@@ -22,45 +22,45 @@ namespace FinancialReportsGenerator.Models
         public long DepreciationAndAmortization { get; set; }
         public long Ebitda { get; set; }
         public long OperatingIncome { get; set; }
-        public double OperatingIncomeRatio { get; set; }
+        public double OperatingIncomeMargin { get; set; }
         public long IncomeBeforeTax { get; set; }
-        public double IncomeBeforeTaxRatio { get; set; }
+        public double IncomeBeforeTaxMargin { get; set; }
         public long IncomeTaxExpense { get; set; }
         public long NetIncome { get; set; }
-        public double NetIncomeRatio { get; set; }
+        public double NetIncomeMargin { get; set; }
         public double Eps { get; set; }
 
         public string Year { get { return Date.Year.ToString(); } }
 
-        public double GrossProfitRatioPercentage { get { return CalculateGrossProfitRatioPercentage(); } }
+        public double GrossProfitRatio { get { return CalculateGrossProfitMargin(); } }
 
-        public double NetIncomeRatioPercentage { get { return CalculateNetIncomeRatioPercentage(); } }
+        public double NetIncomeRatio { get { return CalculateNetIncomeMargin(); } }
 
-        public double SgaRatioPercentage { get { return CalculateSGARatioPercentage(); } }
+        public double SgaMargin { get { return CalculateSGAMargin(); } }
 
-        public double RAndDRatioPercentage { get { return CalculateRAndDRatioPercentage(); } }
+        public double RAndDMargin { get { return CalculateRAndDMargin(); } }
 
-        public double DepreciationRatioPercentage { get { return CalculateDepreciationRatioPercentage(); } }
+        public double DepreciationMargin { get { return CalculateDepreciationMargin(); } }
 
-        public double InterestExpenseRatioPercentage { get { return CalculateInterestRatioPercentage(); } }
+        public double InterestExpenseMargin { get { return CalculateInterestMargin(); } }
 
-        public double IncomeTaxExpenseRatioPercentage { get { return CalculateIncomeTaxRatioPercentage(); } }
+        public double IncomeTaxExpenseMargin { get { return CalculateIncomeTaxMargin(); } }
 
-        public double OperatingExpenseRatio { get { return CalculateOperatingExpenseRatio(); } }
+        public double OperatingExpenseMargin { get { return CalculateOperatingExpenseMargin(); } }
 
-        private double CalculateGrossProfitRatioPercentage()
+        private double CalculateGrossProfitMargin()
         {
-            double gp = Math.Round(GrossProfitRatio * 100);
+            double gp = Math.Round(GrossProfitMargin * 100);
             return gp;
         }
 
-        private double CalculateNetIncomeRatioPercentage()
+        private double CalculateNetIncomeMargin()
         {
-            double ni = Math.Round(NetIncomeRatio * 100);
+            double ni = Math.Round(NetIncomeMargin * 100);
             return ni;
         }
-        //Calculating Selling, General, and Administrative expense ratio to Gross Profit
-        private double CalculateSGARatioPercentage()
+        //Calculating Selling, General, and Administrative expense Margin to Gross Profit
+        private double CalculateSGAMargin()
         {
             if (GrossProfit > 0)
             {
@@ -73,7 +73,7 @@ namespace FinancialReportsGenerator.Models
                 return 0;
             }
         }
-        private double CalculateOperatingExpenseRatio()
+        private double CalculateOperatingExpenseMargin()
         {
             if (GrossProfit > 0)
             {
@@ -87,7 +87,7 @@ namespace FinancialReportsGenerator.Models
             } 
         }
 
-        private double CalculateRAndDRatioPercentage()
+        private double CalculateRAndDMargin()
         {
             if (GrossProfit > 0)
             {
@@ -100,7 +100,7 @@ namespace FinancialReportsGenerator.Models
             }
         }
 
-        private double CalculateDepreciationRatioPercentage()
+        private double CalculateDepreciationMargin()
         {
             if (GrossProfit > 0)
             {
@@ -113,7 +113,7 @@ namespace FinancialReportsGenerator.Models
             }
         }
 
-        private double CalculateInterestRatioPercentage()
+        private double CalculateInterestMargin()
         {
             if (OperatingIncome > 0)
             {
@@ -127,7 +127,7 @@ namespace FinancialReportsGenerator.Models
             
         }
 
-        private double CalculateIncomeTaxRatioPercentage()
+        private double CalculateIncomeTaxMargin()
         {
             if (IncomeBeforeTax > 0)
             {

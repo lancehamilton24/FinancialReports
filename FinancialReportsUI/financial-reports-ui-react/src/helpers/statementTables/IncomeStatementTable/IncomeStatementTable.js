@@ -15,13 +15,13 @@ export default class IncomeStatementTable extends Component {
                 <th>Net Income</th>
                 <th>Operating Expense</th>
                 <th>EPS</th>
-                <th>Profit Margin</th>
+                {/* <th>Profit Margin</th>
                 <th>Net Income Margin</th>
                 <th>Operating Expense Margin</th>
                 <th>SGA Margin</th>
                 <th>R/D Margin</th>
                 <th>Depreciation Margin</th>
-                <th>Interest Expense Margin</th>
+                <th>Interest Expense Margin</th> */}
               </tr>
             </thead>
             <tbody>
@@ -34,13 +34,13 @@ export default class IncomeStatementTable extends Component {
                     <td>{incomeStatement.netIncome.toLocaleString()}</td>
                     <td>{incomeStatement.operatingExpenses.toLocaleString()}</td>
                     <td>{incomeStatement.eps.toFixed(2)}</td>
-                    <td>{incomeStatement.grossProfitRatioPercentage}%</td>
+                    {/* <td>{incomeStatement.grossProfitRatioPercentage}%</td>
                     <td>{incomeStatement.netIncomeRatioPercentage}%</td>
                     <td>{incomeStatement.operatingExpenseRatio}%</td>
                     <td>{incomeStatement.sgaRatioPercentage}%</td>
                     <td>{incomeStatement.rAndDRatioPercentage}%</td>
                     <td>{incomeStatement.depreciationRatioPercentage}%</td>
-                    <td>{incomeStatement.interestExpenseRatioPercentage}%</td>
+                    <td>{incomeStatement.interestExpenseRatioPercentage}%</td> */}
                   </tr>
                 );
               })}

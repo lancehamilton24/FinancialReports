@@ -31,7 +31,7 @@ namespace FinancialReportsGenerator.Services
                     Revenue = statement.Revenue,
                     CostOfRevenue = statement.CostOfRevenue,
                     GrossProfit = statement.GrossProfit,
-                    GrossProfitRatio = statement.GrossProfitRatio,
+                    GrossProfitMargin = statement.GrossProfitMargin,
                     ResearchAndDevelopmentExpenses = statement.ResearchAndDevelopmentExpenses,
                     GeneralAndAdministrativeExpenses = statement.GeneralAndAdministrativeExpenses,
                     SellingAndMarketingExpenses = statement.SellingAndMarketingExpenses,
@@ -40,12 +40,12 @@ namespace FinancialReportsGenerator.Services
                     DepreciationAndAmortization = statement.DepreciationAndAmortization,
                     Ebitda = statement.Ebitda,
                     OperatingIncome = statement.OperatingIncome,
-                    OperatingIncomeRatio = statement.OperatingIncomeRatio,
+                    OperatingIncomeMargin = statement.OperatingIncomeMargin,
                     IncomeBeforeTax = statement.IncomeBeforeTax,
-                    IncomeBeforeTaxRatio = statement.IncomeBeforeTaxRatio,
+                    IncomeBeforeTaxMargin = statement.IncomeBeforeTaxMargin,
                     IncomeTaxExpense = statement.IncomeTaxExpense,
                     NetIncome = statement.NetIncome,
-                    NetIncomeRatio = statement.NetIncomeRatio,
+                    NetIncomeMargin = statement.NetIncomeMargin,
                     Eps = statement.Eps
                 };
 

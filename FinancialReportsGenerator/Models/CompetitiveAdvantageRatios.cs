@@ -9,26 +9,26 @@ namespace FinancialReportsGenerator.Models
     public class CompetitiveAdvantageRatios
     {
         public string Year { get; set;  }
-        //Cross Statement Ratios
-        public double NetReceivablesRatio { get; set; }
-        public double ReturnOnAssetsRatio { get; set; }
-        public double ReturnOnShareholdersEquityRatio { get; set; }
+        //Cross Statement Margins
+        public double NetReceivablesMargin { get; set; }
+        public double ReturnOnAssetsMargin { get; set; }
+        public double ReturnOnShareholdersEquityMargin { get; set; }
 
-        //Balance Sheet Ratios
-        public double CurrAssetsToLiabilitiesRatio { get; set; }
+        //Balance Sheet Margins
+        public double CurrAssetsToLiabilitiesMargin { get; set; }
         public double DebtToShareholdersEquityRatio { get; set; }
 
-        //Income Statement Ratios
-        public double GrossProfitRatioPercentage { get; set; }
-        public double NetIncomeRatioPercentage { get; set; }
-        public double SgaRatioPercentage { get; set; }
-        public double RAndDRatioPercentage { get; set; }
-        public double DepreciationRatioPercentage { get; set; }
-        public double InterestExpenseRatioPercentage { get; set; }
-        public double IncomeTaxExpenseRatioPercentage { get; set; }
-        public double OperatingExpenseRatio { get; set; }
+        //Income Statement Margins
+        public double GrossProfitMargin { get; set; }
+        public double NetIncomeMargin { get; set; }
+        public double SgaMargin { get; set; }
+        public double RAndDMargin { get; set; }
+        public double DepreciationMargin { get; set; }
+        public double InterestExpenseMargin { get; set; }
+        public double IncomeTaxExpenseMargin { get; set; }
+        public double OperatingExpenseMargin { get; set; }
 
-        //CashFlow Statement Ratios
+        //CashFlow Statement Margins
         public double CapExMargin { get; set; }
     }
 }

@@ -35,24 +35,24 @@ namespace FinancialReportsGenerator.Models
         public long TotalDebt { get; set; }
         public long NetDebt { get; set; }
 
-        public double NetReceivablesRatio { get; set; }
+        public double NetReceivablesMargin { get; set; }
 
         public string Year { get { return Date.Year.ToString(); } }
 
-        public double CurrAssetsToLiabilitiesRatio { get { return CalculateCurrAssetsToLiabilitiesRatio(); } }
+        public double CurrAssetsToLiabilitiesMargin { get { return CalculateCurrAssetsToLiabilitiesMargin(); } }
 
         public double DebtToShareholdersEquityRatio { get { return CalculateDebtToShareholdersEquityRatio(); } }
 
-        public double ReturnOnAssetsRatio { get; set; }
+        public double ReturnOnAssetsMargin { get; set; }
 
-        public double ReturnOnShareholdersEquityRatio { get; set; }
+        public double ReturnOnShareholdersEquityMargin { get; set; }
 
-        private double CalculateCurrAssetsToLiabilitiesRatio()
+        private double CalculateCurrAssetsToLiabilitiesMargin()
         {
             if (TotalCurrentLiabilities > 0)
             {
-                double currAssetsToLiabilitiesRatio = Math.Round((double)TotalCurrentAssets / (double)TotalCurrentLiabilities);
-                return currAssetsToLiabilitiesRatio;
+                double currAssetsToLiabilitiesMargin = Math.Round((double)TotalCurrentAssets / (double)TotalCurrentLiabilities);
+                return currAssetsToLiabilitiesMargin;
             }
             else
             {
@@ -64,8 +64,8 @@ namespace FinancialReportsGenerator.Models
         {
             if (TotalStockholdersEquity > 0)
             {
-                double debtToShareholdersEquityRatio = ((double)TotalLiabilities / (double)TotalStockholdersEquity) * 100;
-                return debtToShareholdersEquityRatio;
+                double DebtToShareholdersEquityRatio = ((double)TotalLiabilities / (double)TotalStockholdersEquity) * 100;
+                return DebtToShareholdersEquityRatio;
             }
             else
             {
