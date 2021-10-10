@@ -27,15 +27,15 @@ namespace FinancialReportsGenerator.Models
         public long CapitalExpenditure { get; set; }
         public long FreeCashFlow { get; set; }
         public string Year { get { return Date.Year.ToString(); } }
-        public double CapExMargin { get { return CalculateCapitalExpenditureToNetIncomeRatio(); } }
+        public double CapExMargin { get { return CalculateCapitalExpenditureToNetIncomeMargin(); } }
 
-        private double CalculateCapitalExpenditureToNetIncomeRatio()
+        private double CalculateCapitalExpenditureToNetIncomeMargin()
         {
             if (CapitalExpenditure != 0 && NetIncome > 0)
             {
                 CapitalExpenditure = Math.Abs(CapitalExpenditure);
-                double capitalExpenditureToNetIncomeRatio = ((double)CapitalExpenditure / (double)NetIncome) * 100;
-                return capitalExpenditureToNetIncomeRatio;
+                double capitalExpenditureToNetIncomeMargin = ((double)CapitalExpenditure / (double)NetIncome) * 100;
+                return capitalExpenditureToNetIncomeMargin;
             }
             else
             {

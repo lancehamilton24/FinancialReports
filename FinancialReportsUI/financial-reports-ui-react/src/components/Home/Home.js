@@ -6,6 +6,7 @@ import CashFlowStatement from '../CashFlowStatement/CashFlowStatement';
 import 'bootstrap/dist/css/bootstrap.css';
 import incomeStatementRequest from '../../helpers/data/incomeStatementRequest';
 import './Home.css';
+import CompetitiveAdvantageRatios from '../CompetitiveAdvantageRatios/CompetitiveAdvantageRatios';
 
 class Home extends React.Component {
   constructor(props) {
@@ -70,6 +71,8 @@ class Home extends React.Component {
             <BalanceSheet balanceSheets={financialStatements.balanceSheet}></BalanceSheet>
             <h6>Cash Flow Statements</h6>
             <CashFlowStatement cashFlowStatements={financialStatements.cashFlowStatement}></CashFlowStatement>
+            <h6>Competitive Advantage Ratios</h6>
+            <CompetitiveAdvantageRatios competitiveAdvantageRatios={financialStatements.competitiveAdvantageRatios}></CompetitiveAdvantageRatios>
           </div>
         </div>
       </div>

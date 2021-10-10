@@ -12,9 +12,9 @@ namespace FinancialReportsGenerator.Models
         public List<BalanceSheet> BalanceSheet { get; set; }
         public List<CashFlowStatement> CashFlowStatement { get; set; }
         public CompanyProfile CompanyProfile { get; set; }
-        public List<CompetitiveAdvantageRatios> Ratios { get; set; }
+        public List<CompetitiveAdvantageRatios> CompetitiveAdvantageRatios { get; set; }
 
-        public async void CalculateFinancialSheetRatios()
+        public async void CalculateFinancialSheetMargins()
         {
             try
             {
@@ -22,7 +22,7 @@ namespace FinancialReportsGenerator.Models
                 foreach (var bStatement in BalanceSheet)
                 {
                     CompetitiveAdvantageRatios ratios = new CompetitiveAdvantageRatios();
-                    CalculateCrossStatementRatios(bStatement, ratios);
+                    CalculateCrossStatementMargins(bStatement, ratios);
 
                 }
             }
@@ -32,45 +32,45 @@ namespace FinancialReportsGenerator.Models
             }
         }
 
-        private void CalculateCrossStatementRatios(BalanceSheet balanceSheet, CompetitiveAdvantageRatios ratios)
+        private void CalculateCrossStatementMargins(BalanceSheet balanceSheet, CompetitiveAdvantageRatios ratios)
         {
             try
             {
                 ratios.Year = balanceSheet.Year;
-                ratios.CurrAssetsToLiabilitiesRatio = balanceSheet.CurrAssetsToLiabilitiesRatio;
+                ratios.CurrAssetsToLiabilitiesMargin = balanceSheet.CurrAssetsToLiabilitiesMargin;
                 ratios.DebtToShareholdersEquityRatio = balanceSheet.DebtToShareholdersEquityRatio;
 
                 foreach (var iStatement in IncomeStatement.Where(x => x.Year == balanceSheet.Year))
                 {
-                    //CalculateNetReceivablesRatio
+                    //CalculateNetReceivablesMargin
                     if ((double)iStatement.Revenue > 0)
                     {
-                        double netReceivablesRatio = ((double)balanceSheet.NetReceivables / (double)iStatement.Revenue) * 100;
-                        ratios.NetReceivablesRatio = netReceivablesRatio;
+                        double netReceivablesMargin = ((double)balanceSheet.NetReceivables / (double)iStatement.Revenue) * 100;
+                        ratios.NetReceivablesMargin = netReceivablesMargin;
                     }
 
-                    //CalculateReturnOnAssetsRatio
+                    //CalculateReturnOnAssetsMargin
                     if ((double)balanceSheet.TotalAssets > 0)
                     {
-                        double returnOnAssetsRatio = Math.Round(((double)iStatement.NetIncome / (double)balanceSheet.TotalAssets) * 100);
-                        ratios.ReturnOnAssetsRatio = returnOnAssetsRatio;
+                        double returnOnAssetsMargin = Math.Round(((double)iStatement.NetIncome / (double)balanceSheet.TotalAssets) * 100);
+                        ratios.ReturnOnAssetsMargin = returnOnAssetsMargin;
                     }
 
-                    //CalculateReturnOnShareholdersEquityRatio
+                    //CalculateReturnOnShareholdersEquityMargin
                     if ((double)balanceSheet.TotalStockholdersEquity > 0)
                     {
-                        double returnOnShareholdersEquityRatio = Math.Round(((double)iStatement.NetIncome / (double)balanceSheet.TotalStockholdersEquity) * 100);
-                        ratios.ReturnOnShareholdersEquityRatio = returnOnShareholdersEquityRatio;
+                        double returnOnShareholdersEquityMargin = Math.Round(((double)iStatement.NetIncome / (double)balanceSheet.TotalStockholdersEquity) * 100);
+                        ratios.ReturnOnShareholdersEquityMargin = returnOnShareholdersEquityMargin;
                     }
 
-                    ratios.GrossProfitRatioPercentage = iStatement.GrossProfitRatioPercentage;
-                    ratios.NetIncomeRatioPercentage = iStatement.NetIncomeRatioPercentage;
-                    ratios.SgaRatioPercentage = iStatement.SgaRatioPercentage;
-                    ratios.RAndDRatioPercentage = iStatement.RAndDRatioPercentage;
-                    ratios.DepreciationRatioPercentage = iStatement.DepreciationRatioPercentage;
-                    ratios.InterestExpenseRatioPercentage = iStatement.InterestExpenseRatioPercentage;
-                    ratios.IncomeTaxExpenseRatioPercentage = iStatement.IncomeTaxExpenseRatioPercentage;
-                    ratios.OperatingExpenseRatio = iStatement.OperatingExpenseRatio;
+                    ratios.GrossProfitMargin = iStatement.GrossProfitRatio;
+                    ratios.NetIncomeMargin = iStatement.NetIncomeRatio;
+                    ratios.SgaMargin = iStatement.SgaMargin;
+                    ratios.RAndDMargin = iStatement.RAndDMargin;
+                    ratios.DepreciationMargin = iStatement.DepreciationMargin;
+                    ratios.InterestExpenseMargin = iStatement.InterestExpenseMargin;
+                    ratios.IncomeTaxExpenseMargin = iStatement.IncomeTaxExpenseMargin;
+                    ratios.OperatingExpenseMargin = iStatement.OperatingExpenseMargin;
                 }
 
                 foreach (var cFStatement in CashFlowStatement.Where(x => x.Year == balanceSheet.Year))
@@ -78,7 +78,7 @@ namespace FinancialReportsGenerator.Models
                     ratios.CapExMargin = cFStatement.CapExMargin;
                 }
 
-                Ratios.Add(ratios);
+                CompetitiveAdvantageRatios.Add(ratios);
             }
             catch
             {
@@ -86,12 +86,12 @@ namespace FinancialReportsGenerator.Models
             }
         }
 
-        private void CalculateBalanceSheetRatios(CashFlowStatement cashFlowStatement, CompetitiveAdvantageRatios ratios)
+        private void CalculateBalanceSheetMargins(CashFlowStatement cashFlowStatement, CompetitiveAdvantageRatios ratios)
         {
             try
             {
-                //CalculateCapitalExpenditureToNetIncomeRatio
-                ratios.NetReceivablesRatio = cashFlowStatement.CapExMargin;
+                //CalculateCapitalExpenditureToNetIncomeMargin
+                ratios.NetReceivablesMargin = cashFlowStatement.CapExMargin;
             }
             catch
             {
@@ -99,11 +99,11 @@ namespace FinancialReportsGenerator.Models
             }
         }
 
-        private void CalculateCashFlowRatios(CashFlowStatement cashFlowStatement, CompetitiveAdvantageRatios ratios)
+        private void CalculateCashFlowMargins(CashFlowStatement cashFlowStatement, CompetitiveAdvantageRatios ratios)
         {
             try
             {
-                //CalculateCapitalExpenditureToNetIncomeRatio
+                //CalculateCapitalExpenditureToNetIncomeMargin
                    ratios.CapExMargin = cashFlowStatement.CapExMargin;
             }
             catch

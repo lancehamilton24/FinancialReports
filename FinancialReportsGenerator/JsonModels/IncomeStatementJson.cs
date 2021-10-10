@@ -66,8 +66,8 @@ namespace FinancialReportsGenerator.JsonModels
         [JsonProperty("ebitda")]
         public long Ebitda { get; set; }
 
-        [JsonProperty("ebitdaratio")]
-        public double Ebitdaratio { get; set; }
+        [JsonProperty("ebitdaRatio")]
+        public double EbitdaRatio { get; set; }
 
         [JsonProperty("operatingIncome")]
         public long OperatingIncome { get; set; }

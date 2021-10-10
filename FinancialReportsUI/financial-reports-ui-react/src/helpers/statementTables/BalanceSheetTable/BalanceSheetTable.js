@@ -24,11 +24,11 @@ export default class BalanceSheetTable extends Component {
                 <th>Total Liabilities</th>
                 <th>Net Worth/Shareholders' Equity</th>
                 <th>Retained Earnings</th>
-                <th>Net Receivables Ratio</th>
+                {/* <th>Net Receivables Ratio</th>
                 <th>Curr Assets to Liabilities Ratio</th>
                 <th>Debt To Shareholders' Equity Ratio</th>
                 <th>Return on Assets Ratio</th>
-                <th>Return on Shareholders' Equity Ratio</th>
+                <th>Return on Shareholders' Equity Ratio</th> */}
               </tr>
             </thead>
             <tbody>
@@ -49,11 +49,11 @@ export default class BalanceSheetTable extends Component {
                     <td>{balanceSheet.totalLiabilities.toLocaleString()}</td>
                     <td>{balanceSheet.totalStockholdersEquity.toLocaleString()}</td>
                     <td>{balanceSheet.retainedEarnings.toLocaleString()}</td>
-                    <td>{balanceSheet.netReceivablesRatio.toFixed(2)}%</td>
+                    {/* <td>{balanceSheet.netReceivablesRatio.toFixed(2)}%</td>
                     <td>{balanceSheet.currAssetsToLiabilitiesRatio}%</td>
                     <td>{balanceSheet.debtToShareholdersEquityRatio.toFixed(2)}%</td>
                     <td>{balanceSheet.returnOnAssetsRatio}%</td>
-                    <td>{balanceSheet.returnOnShareholdersEquityRatio}%</td>
+                    <td>{balanceSheet.returnOnShareholdersEquityRatio}%</td> */}
                   </tr>
                 );
               })}
