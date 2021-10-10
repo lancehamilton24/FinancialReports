@@ -22,7 +22,7 @@ static getDerivedStateFromProps(props, state) {
     );
     }
     return (
-      <div class="balanceSheet">
+      <div class="competitiveAdvantageRatios">
       <Table striped bordered responsive="sm">
         <h1>Ratio Data Not Available</h1>
       </Table>

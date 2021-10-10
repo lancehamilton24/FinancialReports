@@ -36,8 +36,8 @@ namespace FinancialReportsGenerator.JsonModels
         [JsonProperty("grossProfit")]
         public long GrossProfit { get; set; }
 
-        [JsonProperty("grossProfitMargin")]
-        public double GrossProfitMargin { get; set; }
+        [JsonProperty("grossProfitRatio")]
+        public double GrossProfitRatio { get; set; }
 
         [JsonProperty("researchAndDevelopmentExpenses")]
         public long ResearchAndDevelopmentExpenses { get; set; }
@@ -66,14 +66,14 @@ namespace FinancialReportsGenerator.JsonModels
         [JsonProperty("ebitda")]
         public long Ebitda { get; set; }
 
-        [JsonProperty("ebitdaMargin")]
-        public double EbitdaMargin { get; set; }
+        [JsonProperty("ebitdaRatio")]
+        public double EbitdaRatio { get; set; }
 
         [JsonProperty("operatingIncome")]
         public long OperatingIncome { get; set; }
 
-        [JsonProperty("operatingIncomeMargin")]
-        public double OperatingIncomeMargin { get; set; }
+        [JsonProperty("operatingIncomeRatio")]
+        public double OperatingIncomeRatio { get; set; }
 
         [JsonProperty("totalOtherIncomeExpensesNet")]
         public long TotalOtherIncomeExpensesNet { get; set; }
@@ -81,8 +81,8 @@ namespace FinancialReportsGenerator.JsonModels
         [JsonProperty("incomeBeforeTax")]
         public long IncomeBeforeTax { get; set; }
 
-        [JsonProperty("incomeBeforeTaxMargin")]
-        public double IncomeBeforeTaxMargin { get; set; }
+        [JsonProperty("incomeBeforeTaxRatio")]
+        public double IncomeBeforeTaxRatio { get; set; }
 
         [JsonProperty("incomeTaxExpense")]
         public long IncomeTaxExpense { get; set; }
@@ -90,8 +90,8 @@ namespace FinancialReportsGenerator.JsonModels
         [JsonProperty("netIncome")]
         public long NetIncome { get; set; }
 
-        [JsonProperty("netIncomeMargin")]
-        public double NetIncomeMargin { get; set; }
+        [JsonProperty("netIncomeRatio")]
+        public double NetIncomeRatio { get; set; }
 
         [JsonProperty("eps")]
         public double Eps { get; set; }

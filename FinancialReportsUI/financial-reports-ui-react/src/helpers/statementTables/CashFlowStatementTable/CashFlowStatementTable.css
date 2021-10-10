@@ -5,9 +5,6 @@ thead {
 }
 
 .cashFlowStatement {
-  height: 300px;
-  /* width: 70%; */
-  padding: 0px;
   overflow: auto;
   border: 1px solid black;
   margin: 2%;

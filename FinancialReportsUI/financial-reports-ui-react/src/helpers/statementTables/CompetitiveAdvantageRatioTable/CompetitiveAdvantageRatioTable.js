@@ -40,9 +40,9 @@ export default class CompetitiveAdvantageRatioTable extends Component {
                     <td>{ratio.incomeTaxExpenseMargin}%</td>
                     <td>{ratio.operatingExpenseMargin}%</td>
                     <td>{ratio.currAssetsToLiabilitiesMargin}%</td>
-                    <td>{ratio.debtToShareholdersEquityRatio}%</td>
-                    <td>{ratio.capExMargin}%</td>
-                    <td>{ratio.netReceivablesMargin}%</td>
+                    <td>{ratio.debtToShareholdersEquityRatio.toFixed(2)}%</td>
+                    <td>{ratio.capExMargin.toFixed(2)}%</td>
+                    <td>{ratio.netReceivablesMargin.toFixed(2)}%</td>
                     <td>{ratio.returnOnAssetsMargin}%</td>
                     <td>{ratio.returnOnShareholdersEquityMargin}%</td>
                   </tr>
