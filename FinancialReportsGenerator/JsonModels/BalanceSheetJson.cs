@@ -144,7 +144,7 @@ namespace FinancialReportsGenerator.JsonModels
         [JsonProperty("netDebt")]
         public long NetDebt { get; set; }
 
-        public double NetReceivablesRatio { get; set; }
+        public double NetReceivablesMargin { get; set; }
 
         [JsonProperty("link")]
         public Uri Link { get; set; }

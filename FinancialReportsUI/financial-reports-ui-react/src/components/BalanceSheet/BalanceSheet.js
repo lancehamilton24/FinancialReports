@@ -22,7 +22,7 @@ export default class BalanceSheet extends Component {
     );
     }
     return (
-      <div class="balanceSheet">
+      <div class="competitiveAdvantageRatio">
       <Table striped bordered responsive="sm">
         <h1>Balance Sheet Data Not Available</h1>
       </Table>

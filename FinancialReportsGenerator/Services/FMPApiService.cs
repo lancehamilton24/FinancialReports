@@ -25,10 +25,11 @@ namespace FinancialReportsGenerator.Services
                 CompanyProfile = companyProfile,
                 IncomeStatement = incomeStatements,
                 BalanceSheet = balanceSheets,
-                CashFlowStatement =  cashFlowStatements
+                CashFlowStatement = cashFlowStatements,
+                CompetitiveAdvantageRatios = new List<CompetitiveAdvantageRatios>()
             };
 
-            financialStatements.CalculateFinancialSheetRatios();
+            financialStatements.CalculateFinancialSheetMargins();
             return financialStatements;
         }
     }

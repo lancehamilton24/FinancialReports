@@ -27,7 +27,7 @@ export default class CashFlowStatementTable extends Component {
                 <th>Operating Cash Flow</th>
                 <th>Capital Expenditure</th>
                 <th>Free Cash Flow</th>
-                <th>Capital Expenditure to Net Income Ratio</th>
+                {/* <th>Capital Expenditure to Net Income Ratio</th> */}
               </tr>
             </thead>
             <tbody>
@@ -52,7 +52,7 @@ export default class CashFlowStatementTable extends Component {
                     <td>{cashFlowStatement.operatingCashFlow.toLocaleString()}</td>
                     <td>{cashFlowStatement.capitalExpenditure.toLocaleString()}</td>
                     <td>{cashFlowStatement.freeCashFlow.toLocaleString()}</td>
-                    <td>{cashFlowStatement.capExMargin.toFixed(2)}%</td>
+                    {/* <td>{cashFlowStatement.capExMargin.toFixed(2)}%</td> */}
                   </tr>
                 );
               })}
