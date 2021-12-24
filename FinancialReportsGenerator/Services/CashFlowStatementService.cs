@@ -12,13 +12,9 @@ namespace FinancialReportsGenerator.Services
     {
         FMPApiClient _apiClient;
 
-        public CashFlowStatementService(FMPApiClient apiClient)
-        {
-            _apiClient = apiClient;
-        }
-
         public async Task<List<CashFlowStatement>> GetAllCashFlowStatements(string companyTicker)
         {
+            _apiClient = new FMPApiClient();
             var response = await _apiClient.GetAllCashFlowStatements(companyTicker);
             var cashFlowStatements = response.Item3;
             var cashFlowStatementList = new List<CashFlowStatement>();

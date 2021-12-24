@@ -230,21 +230,17 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lance\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\lance\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj",
+      "projectUniqueName": "C:\\Github\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj",
       "projectName": "FinancialReportsGenerator",
-      "projectPath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj",
+      "projectPath": "C:\\Github\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj",
       "packagesPath": "C:\\Users\\lance\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGenerator\\obj\\",
+      "outputPath": "C:\\Github\\FinancialReports\\FinancialReportsGenerator\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\lance\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -299,7 +295,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

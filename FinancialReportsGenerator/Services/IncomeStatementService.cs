@@ -12,13 +12,9 @@ namespace FinancialReportsGenerator.Services
     {
         FMPApiClient _apiClient;
 
-        public IncomeStatementService(FMPApiClient apiClient)
-        {
-            _apiClient = apiClient;
-        }
-
         public async Task<List<IncomeStatement>> GetAllIncomeStatements(string companyTicker)
         {
+            _apiClient = new FMPApiClient();
             var response = await _apiClient.GetAllIncomeStatements(companyTicker);
             var statements = response.Item3;
             var incomeStatements = new List<IncomeStatement>();
