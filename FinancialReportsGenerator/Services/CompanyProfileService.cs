@@ -12,13 +12,9 @@ namespace FinancialReportsGenerator.Services
     {
         FMPApiClient _apiClient;
 
-        public CompanyProfileService(FMPApiClient apiClient)
-        {
-            _apiClient = apiClient;
-        }
-
         public async Task<CompanyProfile> GetCompanyProfile(string companyTicker)
         {
+            _apiClient = new FMPApiClient();
             var response = await _apiClient.GetCompanyProfile(companyTicker);
             var profiles = response.Item3;
             var companyProfile = new CompanyProfile();

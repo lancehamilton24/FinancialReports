@@ -12,13 +12,9 @@ namespace FinancialReportsGenerator.Services
     {
         FMPApiClient _apiClient;
 
-        public BalanceSheetService(FMPApiClient apiClient)
-        {
-            _apiClient = apiClient;
-        }
-
         public async Task<List<BalanceSheet>> GetAllBalanceSheets(string companyTicker)
         {
+            _apiClient = new FMPApiClient();
             var response = await _apiClient.GetAllBalanceSheets(companyTicker);
             var balanceSheets = response.Item3;
             var balanceSheetList = new List<BalanceSheet>();

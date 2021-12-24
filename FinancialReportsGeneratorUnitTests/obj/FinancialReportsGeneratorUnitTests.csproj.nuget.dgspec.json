@@ -1,21 +1,18 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGeneratorUnitTests\\FinancialReportsGeneratorUnitTests.csproj": {}
+    "C:\\Github\\FinancialReports\\FinancialReportsGeneratorUnitTests\\FinancialReportsGeneratorUnitTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGeneratorUnitTests\\FinancialReportsGeneratorUnitTests.csproj": {
+    "C:\\Github\\FinancialReports\\FinancialReportsGeneratorUnitTests\\FinancialReportsGeneratorUnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGeneratorUnitTests\\FinancialReportsGeneratorUnitTests.csproj",
+        "projectUniqueName": "C:\\Github\\FinancialReports\\FinancialReportsGeneratorUnitTests\\FinancialReportsGeneratorUnitTests.csproj",
         "projectName": "FinancialReportsGeneratorUnitTests",
-        "projectPath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGeneratorUnitTests\\FinancialReportsGeneratorUnitTests.csproj",
+        "projectPath": "C:\\Github\\FinancialReports\\FinancialReportsGeneratorUnitTests\\FinancialReportsGeneratorUnitTests.csproj",
         "packagesPath": "C:\\Users\\lance\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGeneratorUnitTests\\obj\\",
+        "outputPath": "C:\\Github\\FinancialReports\\FinancialReportsGeneratorUnitTests\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\lance\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -31,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj": {
-                "projectPath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj"
+              "C:\\Github\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj": {
+                "projectPath": "C:\\Github\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj"
               }
             }
           }
@@ -79,22 +76,19 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj": {
+    "C:\\Github\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj",
+        "projectUniqueName": "C:\\Github\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj",
         "projectName": "FinancialReportsGenerator",
-        "projectPath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj",
+        "projectPath": "C:\\Github\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj",
         "packagesPath": "C:\\Users\\lance\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGenerator\\obj\\",
+        "outputPath": "C:\\Github\\FinancialReports\\FinancialReportsGenerator\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\lance\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -149,7 +143,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

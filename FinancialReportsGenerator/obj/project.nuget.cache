@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IODKvpva6Ajqi8xus2w0epMwySRiL9mijmwZv+zvUyk53gqm6PMrHR8WgyobafAFRT0/nRdby0awwPOeOwuQIA==",
+  "dgSpecHash": "j5z291mcgUiHeF89BmJTEHwy3Sh34rfKVaGvJToNRQlLXRRoKtCJQrCNExywNJUZpqBMeJG5MoriBAUMd9GujA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lance\\workspace\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj",
+  "projectFilePath": "C:\\Github\\FinancialReports\\FinancialReportsGenerator\\FinancialReportsGenerator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lance\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\lance\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
