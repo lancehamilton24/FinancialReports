@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FinancialReportsGenerator.Services
 {
-    public class FMPApiService
+    public class FinancialStatementService
     {
         CompanyProfileService _profileService;
         IncomeStatementService _incomeStatementService;

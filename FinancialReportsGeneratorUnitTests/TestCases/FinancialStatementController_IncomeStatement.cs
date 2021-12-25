@@ -1,5 +1,7 @@
 using FinancialReportsGenerator.Controllers;
+using FinancialReportsGenerator.Models;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace FinancialReportsApiUnitTests
 {
@@ -14,10 +16,11 @@ namespace FinancialReportsApiUnitTests
         }
 
         [Test]
-        public void GetAllCompanyIncomeStatements_ShouldPass()
+        public void GetCompanyFinancialReport_ShouldPass()
         {
-            var result = _financialStatementController.GetAllIncomeStatements("PYPL").Result;
-            Assert.NotNull(result);
+            FinancialStatement financialReport = new FinancialStatement();
+            financialReport = _financialStatementController.GetAllFinancialStatements("PYPL").Result;
+            Assert.NotNull(financialReport);
         }
     }
 }

@@ -19,47 +19,22 @@ namespace FinancialReportsGenerator.Controllers
     [Route("api/[controller]")]
     public class FinancialStatementsController : Controller
     {
-        FMPApiService _apiService;
+        FinancialStatementService _apiService;
 
         [HttpGet("financialstatements/{companyTicker}")]
         public async Task<FinancialStatement> GetAllFinancialStatements(string companyTicker)
         {
-            _apiService = new FMPApiService();
+            _apiService = new FinancialStatementService();
 
-            var response = await _apiService.GetAllFinancialStatements(companyTicker);
-            return response;
+            try
+            {
+                var response = await _apiService.GetAllFinancialStatements(companyTicker);
+                return response;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
-
-        //[HttpGet("companyprofile/{companyTicker}")]
-        //public async Task<CompanyProfile> GetCompanyProfile(string companyTicker)
-        //{
-        //    _profileService = new CompanyProfileService();
-        //    var response = await _profileService.GetCompanyProfile(companyTicker);
-        //    return response;
-        //}
-
-        //[HttpGet("incomestatements/{companyTicker}")]
-        //public async Task<List<IncomeStatement>> GetAllIncomeStatements(string companyTicker)
-        //{
-        //    _incomeStatementService = new IncomeStatementService();
-        //    var response = await _incomeStatementService.GetAllIncomeStatements(companyTicker);
-        //    return response;
-        //}
-
-        //[HttpGet("balancesheets/{companyTicker}")]
-        //public async Task<List<BalanceSheet>> GetAllBalanceSheets(string companyTicker)
-        //{
-        //    _balanceSheetService = new BalanceSheetService();
-        //    var response = await _balanceSheetService.GetAllBalanceSheets(companyTicker);
-        //    return response;
-        //}
-
-        //[HttpGet("cashflowstatements/{companyTicker}")]
-        //public async Task<List<CashFlowStatement>> GetAllCashFlowStatements(string companyTicker)
-        //{
-        //    _cashFlowService = new CashFlowStatementService();
-        //    var response = await _cashFlowService.GetAllCashFlowStatements(companyTicker);
-        //    return response;
-        //}
     }
 }
