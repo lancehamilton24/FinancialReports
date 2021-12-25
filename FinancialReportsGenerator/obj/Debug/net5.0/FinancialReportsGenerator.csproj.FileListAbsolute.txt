@@ -42,7 +42,6 @@ C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\Newtonsoft
 C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.csproj.AssemblyReference.cache
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.GeneratedMSBuildEditorConfig.editorconfig
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.AssemblyInfoInputs.cache
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.AssemblyInfo.cs
@@ -53,6 +52,7 @@ C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\staticweba
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\staticwebassets\FinancialReportsGenerator.StaticWebAssets.xml
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\scopedcss\bundle\FinancialReportsGenerator.styles.css
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.RazorTargetAssemblyInfo.cache
+C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.csproj.CopyComplete
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\ref\FinancialReportsGenerator.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.pdb
