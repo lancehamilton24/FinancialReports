@@ -3,10 +3,11 @@ import CompanyProfile from '../CompanyProfile/CompanyProfile';
 import IncomeStatement from '../IncomeStatement/IncomeStatement';
 import BalanceSheet from '../BalanceSheet/BalanceSheet';
 import CashFlowStatement from '../CashFlowStatement/CashFlowStatement';
-import 'bootstrap/dist/css/bootstrap.css';
-import incomeStatementRequest from '../../Data/incomeStatementRequest';
-import './Home.css';
 import CompetitiveAdvantageRatios from '../CompetitiveAdvantageRatios/CompetitiveAdvantageRatios';
+import 'bootstrap/dist/css/bootstrap.css';
+import incomeStatementRequest from '../../Data/financialStatementsRequest';
+import './Home.css';
+
 
 class Home extends React.Component {
   constructor(props) {
