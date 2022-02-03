@@ -4,7 +4,7 @@ import IncomeStatement from '../IncomeStatement/IncomeStatement';
 import BalanceSheet from '../BalanceSheet/BalanceSheet';
 import CashFlowStatement from '../CashFlowStatement/CashFlowStatement';
 import 'bootstrap/dist/css/bootstrap.css';
-import incomeStatementRequest from '../../helpers/data/incomeStatementRequest';
+import incomeStatementRequest from '../../Data/incomeStatementRequest';
 import './Home.css';
 import CompetitiveAdvantageRatios from '../CompetitiveAdvantageRatios/CompetitiveAdvantageRatios';
 
@@ -13,7 +13,6 @@ class Home extends React.Component {
     super(props);
     this.state = 
     {
-      companyTicker: '',
       isTickerSubmitted: false,
       financialStatements: []
     };
@@ -29,7 +28,6 @@ class Home extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    this.setState({ companyTicker: this.tickerInput.current.value });
     if (this.tickerInput.current.value !== null) {
       this.getAllFinancialStatements(this.tickerInput.current.value);
       this.setState({ isTickerSubmitted: true });
@@ -38,13 +36,12 @@ class Home extends React.Component {
 
   newGroupSearch = (e) => {
     e.preventDefault();
-    this.setState({ companyTicker: '' });
-    this.setState({ isTickerSubmitted: false });
+    this.setState({ financialStatements: [] });
   };
 
   render() {
     const { financialStatements } = this.state;
-    if (this.state.isTickerSubmitted === false) {
+    if (this.state.financialStatements.length <= 0) {
       return (
         <div>
           <h1>Fincancial Statement Analysis</h1>
@@ -59,9 +56,6 @@ class Home extends React.Component {
       <div>
         <button type="button" onClick={this.newGroupSearch}>Search New Group</button>
         <div className="panels">
-          {/* <div className="panel-companyprofile">
-          
-          </div> */}
           <div className="panel-financialstatements">
             <h6>Company Profile</h6>
             <CompanyProfile companyProfile={financialStatements.companyProfile}></CompanyProfile>
