@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import CompanyProfile from '../CompanyProfile/CompanyProfile';
-import IncomeStatement from '../IncomeStatement/IncomeStatement';
-import BalanceSheet from '../BalanceSheet/BalanceSheet';
-import CashFlowStatement from '../CashFlowStatement/CashFlowStatement';
-import CompetitiveAdvantageRatios from '../CompetitiveAdvantageRatios/CompetitiveAdvantageRatios';
+import CompanyProfile from '../CompanyInfo/CompanyProfile/CompanyProfile';
+import IncomeStatement from '../CompanyInfo/IncomeStatement/IncomeStatement';
+import BalanceSheet from '../CompanyInfo/BalanceSheet/BalanceSheet';
+import CashFlowStatement from '../CompanyInfo/CashFlowStatement/CashFlowStatement';
+import CompetitiveAdvantageRatios from '../CompanyInfo/CompetitiveAdvantageRatios/CompetitiveAdvantageRatios';
 import 'bootstrap/dist/css/bootstrap.css';
 import incomeStatementRequest from '../../Data/financialStatementsRequest';
 import './Home.css';
