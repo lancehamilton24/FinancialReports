@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import CompanyProfile from '../CompanyInfo/CompanyProfile/CompanyProfile';
 import IncomeStatement from '../CompanyInfo/IncomeStatement/IncomeStatement';
 import BalanceSheet from '../CompanyInfo/BalanceSheet/BalanceSheet';
 import CashFlowStatement from '../CompanyInfo/CashFlowStatement/CashFlowStatement';
 import CompetitiveAdvantageRatios from '../CompanyInfo/CompetitiveAdvantageRatios/CompetitiveAdvantageRatios';
-import 'bootstrap/dist/css/bootstrap.css';
 import incomeStatementRequest from '../../Data/financialStatementsRequest';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import NavBar from '../MaterialUI/AppBar';
 import './Home.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const Home = () => {
   const [ financialStatements, setFinancialStatements ] = useState([]);
@@ -17,11 +20,14 @@ const Home = () => {
     })
   }
 
-  const tickerInput = React.createRef();
+  const tickerInput = () => {
+    React.createRef();
+  } 
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    getAllFinancialStatements(tickerInput.current.value);
+  const valueRef = useRef('');
+
+  const submitTicker = () => {
+    getAllFinancialStatements(valueRef.current.value);
   };
 
   const newGroupSearch = (e) => {
@@ -31,17 +37,18 @@ const Home = () => {
 
   if (financialStatements.length <= 0) {
     return (
-      <div>
-        <h1>Fincancial Statement Analysis</h1>
-        <form>
-          <input type="text" placeholder="Enter Company Ticker" ref={tickerInput} required></input>
-          <button type="button" onClick={submitHandler}>Get Data</button>
-        </form>
+      <div className="home">
+        <NavBar></NavBar>
+        <div className="companySearch">
+          <TextField id="filled-basic" label="Enter Company Ticker" variant="filled" inputRef={valueRef}/>
+          <Button variant="contained" onClick={submitTicker}>Search</Button>
+        </div>
       </div>
     );
   }
   return (
     <div>
+      <NavBar></NavBar>
       <button type="button" onClick={newGroupSearch}>Search New Group</button>
       <div className="panels">
         <div className="panel-financialstatements">

@@ -5,9 +5,11 @@
   float: none;
 }
 */
-/* .home {
+.companySearch {
+  display: flex;
   justify-content: center;
-}  */
+  margin: 2%;
+} 
 
 /* .panels > div {
   border: 1px solid black;
