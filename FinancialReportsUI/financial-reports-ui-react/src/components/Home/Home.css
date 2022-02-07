@@ -1,27 +1,17 @@
-/* .form-control{
-  text-align: center;
-  align: center;
-  display: inline-block;
-  float: none;
-}
-*/
+
 .companySearch {
   display: flex;
   justify-content: center;
   margin: 2%;
 } 
 
-/* .panels > div {
-  border: 1px solid black;
-} */
+.indexInfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 5%;
+}
 
 .panels {
   text-align: center;
 }
-
-/* .panel-financialstatements{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
-} */
