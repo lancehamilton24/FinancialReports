@@ -52,8 +52,8 @@ C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\staticweba
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\staticwebassets\FinancialReportsGenerator.StaticWebAssets.xml
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\scopedcss\bundle\FinancialReportsGenerator.styles.css
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.RazorTargetAssemblyInfo.cache
-C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.csproj.CopyComplete
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\ref\FinancialReportsGenerator.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.pdb
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.genruntimeconfig.cache
+C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.csproj.AssemblyReference.cache
