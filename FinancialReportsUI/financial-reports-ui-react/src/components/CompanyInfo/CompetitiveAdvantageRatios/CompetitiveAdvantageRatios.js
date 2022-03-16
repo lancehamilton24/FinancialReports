@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { FinancialStatementsContext } from '../../../contexts/FinancialStatementsContext';
 import { Table } from 'react-bootstrap';
 import './CompetitiveAdvantageRatios.css';
 
-const CompetitiveAdvantageRatios = (props) => {
-  return (
-    <div class="competitiveAdvantageRatios">
+const CompetitiveAdvantageRatios = () => {
+  const { financialStatements } = useContext(FinancialStatementsContext);
+
+  if (financialStatements.competitiveAdvantageRatios == undefined) {
+    return (
+      <div>
+        <h1>Still loading...</h1>
+      </div>
+    )
+  }
+  else {
+    return (
+      <div class="competitiveAdvantageRatios">
         <Table striped bordered responsive="sm">
           <thead>
             <tr>
@@ -26,7 +37,7 @@ const CompetitiveAdvantageRatios = (props) => {
             </tr>
           </thead>
           <tbody>
-            {props.competitiveAdvantageRatios.map((ratio) => {
+            {financialStatements.competitiveAdvantageRatios.map((ratio) => {
               return (
                 <tr key={ratio.year}>
                   <td>{ratio.year}</td>
@@ -50,7 +61,9 @@ const CompetitiveAdvantageRatios = (props) => {
           </tbody>
         </Table>
       </div>
-  );
+    );
+  }
+
 };
 
 export default CompetitiveAdvantageRatios;

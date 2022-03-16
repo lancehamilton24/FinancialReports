@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { FinancialStatementsContext } from '../../../contexts/FinancialStatementsContext';
 import { Table } from 'react-bootstrap';
 import './BalanceSheet.css';
 
-const BalanceSheet = (props) => {
-  return (
-    <div class="balancesheet">
+const BalanceSheet = () => {
+  const { financialStatements } = useContext(FinancialStatementsContext);
+
+  if (financialStatements.balanceSheet == undefined) {
+    return (
+      <div>
+        <h1>Still loading...</h1>
+      </div>
+    )
+  }
+  else {
+    return (
+      <div class="balancesheet">
         <Table striped bordered responsive="sm">
           <thead>
             <tr>
@@ -23,14 +34,14 @@ const BalanceSheet = (props) => {
               <th>Net Worth/Shareholders' Equity</th>
               <th>Retained Earnings</th>
               {/* <th>Net Receivables Ratio</th>
-              <th>Curr Assets to Liabilities Ratio</th>
-              <th>Debt To Shareholders' Equity Ratio</th>
-              <th>Return on Assets Ratio</th>
-              <th>Return on Shareholders' Equity Ratio</th> */}
+                <th>Curr Assets to Liabilities Ratio</th>
+                <th>Debt To Shareholders' Equity Ratio</th>
+                <th>Return on Assets Ratio</th>
+                <th>Return on Shareholders' Equity Ratio</th> */}
             </tr>
           </thead>
           <tbody>
-            {props.balanceSheets.map((balanceSheet) => {
+            {financialStatements.balanceSheet.map((balanceSheet) => {
               return (
                 <tr key={balanceSheet.year}>
                   <td>{balanceSheet.year}</td>
@@ -48,17 +59,19 @@ const BalanceSheet = (props) => {
                   <td>{balanceSheet.totalStockholdersEquity.toLocaleString()}</td>
                   <td>{balanceSheet.retainedEarnings.toLocaleString()}</td>
                   {/* <td>{balanceSheet.netReceivablesRatio.toFixed(2)}%</td>
-                  <td>{balanceSheet.currAssetsToLiabilitiesRatio}%</td>
-                  <td>{balanceSheet.debtToShareholdersEquityRatio.toFixed(2)}%</td>
-                  <td>{balanceSheet.returnOnAssetsRatio}%</td>
-                  <td>{balanceSheet.returnOnShareholdersEquityRatio}%</td> */}
+                    <td>{balanceSheet.currAssetsToLiabilitiesRatio}%</td>
+                    <td>{balanceSheet.debtToShareholdersEquityRatio.toFixed(2)}%</td>
+                    <td>{balanceSheet.returnOnAssetsRatio}%</td>
+                    <td>{balanceSheet.returnOnShareholdersEquityRatio}%</td> */}
                 </tr>
               );
             })}
           </tbody>
         </Table>
       </div>
-  );
+    );
+  }
+
 };
 
 export default BalanceSheet;

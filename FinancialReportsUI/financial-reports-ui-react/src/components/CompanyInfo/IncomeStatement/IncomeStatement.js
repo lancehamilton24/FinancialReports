@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FinancialStatementsContext } from '../../../contexts/FinancialStatementsContext';
 import { Table } from 'react-bootstrap';
 import './IncomeStatement.css';
 
 
-const IncomeStatement = (props) => {
-  return (
-    <div class="incomestatement">
+const IncomeStatement = () => {
+  const { financialStatements } = useContext(FinancialStatementsContext);
+
+  if (financialStatements.incomeStatement == undefined) {
+    return (
+      <div>
+        <h1>Still loading...</h1>
+      </div>
+    )
+  }
+  else {
+    return (
+      <div class="incomestatement">
         <Table striped bordered responsive="sm">
           <thead>
             <tr>
@@ -16,16 +27,16 @@ const IncomeStatement = (props) => {
               <th>Operating Expense</th>
               <th>EPS</th>
               {/* <th>Profit Margin</th>
-              <th>Net Income Margin</th>
-              <th>Operating Expense Margin</th>
-              <th>SGA Margin</th>
-              <th>R/D Margin</th>
-              <th>Depreciation Margin</th>
-              <th>Interest Expense Margin</th> */}
+                <th>Net Income Margin</th>
+                <th>Operating Expense Margin</th>
+                <th>SGA Margin</th>
+                <th>R/D Margin</th>
+                <th>Depreciation Margin</th>
+                <th>Interest Expense Margin</th> */}
             </tr>
           </thead>
           <tbody>
-            {props.incomeStatements.map((incomeStatement) => {
+            {financialStatements.incomeStatement.map((incomeStatement) => {
               return (
                 <tr key={incomeStatement.year}>
                   <td>{incomeStatement.year}</td>
@@ -35,19 +46,21 @@ const IncomeStatement = (props) => {
                   <td>{incomeStatement.operatingExpenses.toLocaleString()}</td>
                   <td>{incomeStatement.eps.toFixed(2)}</td>
                   {/* <td>{incomeStatement.grossProfitRatioPercentage}%</td>
-                  <td>{incomeStatement.netIncomeRatioPercentage}%</td>
-                  <td>{incomeStatement.operatingExpenseRatio}%</td>
-                  <td>{incomeStatement.sgaRatioPercentage}%</td>
-                  <td>{incomeStatement.rAndDRatioPercentage}%</td>
-                  <td>{incomeStatement.depreciationRatioPercentage}%</td>
-                  <td>{incomeStatement.interestExpenseRatioPercentage}%</td> */}
+                    <td>{incomeStatement.netIncomeRatioPercentage}%</td>
+                    <td>{incomeStatement.operatingExpenseRatio}%</td>
+                    <td>{incomeStatement.sgaRatioPercentage}%</td>
+                    <td>{incomeStatement.rAndDRatioPercentage}%</td>
+                    <td>{incomeStatement.depreciationRatioPercentage}%</td>
+                    <td>{incomeStatement.interestExpenseRatioPercentage}%</td> */}
                 </tr>
               );
             })}
           </tbody>
         </Table>
       </div>
-  );
+    );
+  }
+
 };
 
 export default IncomeStatement;
