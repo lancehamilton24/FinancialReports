@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { FinancialStatementsContext } from '../../../contexts/FinancialStatementsContext';
 import { Table } from 'react-bootstrap';
 import './CompanyProfile.css';
 
-const CompanyProfile = (props) => {
-    if (props.companyProfile != null)
+const CompanyProfile = () => {
+  const {financialStatements} = useContext(FinancialStatementsContext);
+
+    if (financialStatements.companyProfile != null)
     {
       return (
         <div class="profile">
@@ -20,13 +23,13 @@ const CompanyProfile = (props) => {
                       </tr>
                   </thead>
                   <tbody>
-                                  <td>{props.companyProfile.symbol}</td>
-                                  <td>{props.companyProfile.name}</td>
-                                  <td>{props.companyProfile.price.toLocaleString(2)}</td>
-                                  <td>{props.companyProfile.marketCap.toLocaleString()}</td>
-                                  <td>{props.companyProfile.yearLow.toLocaleString(2)}</td>
-                                  <td>{props.companyProfile.yearHigh.toLocaleString(2)}</td>
-                                  <td>{props.companyProfile.pe.toFixed(2)}</td>
+                                  <td>{financialStatements.companyProfile.symbol}</td>
+                                  <td>{financialStatements.companyProfile.name}</td>
+                                  <td>{financialStatements.companyProfile.price.toLocaleString(2)}</td>
+                                  <td>{financialStatements.companyProfile.marketCap.toLocaleString()}</td>
+                                  <td>{financialStatements.companyProfile.yearLow.toLocaleString(2)}</td>
+                                  <td>{financialStatements.companyProfile.yearHigh.toLocaleString(2)}</td>
+                                  <td>{financialStatements.companyProfile.pe.toFixed(2)}</td>
                   </tbody>
               </Table>
               </div>
@@ -45,36 +48,3 @@ const CompanyProfile = (props) => {
 };
 
 export default CompanyProfile;
-
-// export class CompanyProfile extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {companyProfile: []};
-//   }
-
-//   static getDerivedStateFromProps(props, state) {
-//     return {companyProfile: props.companyProfile };
-//   }
-
-//   render() {
-//     const { companyProfile } = this.state;
-//     if (companyProfile != null)
-//     {
-//       return(
-//         <CompanyProfileTable companyProfile={companyProfile}></CompanyProfileTable>
-//       );
-//     }
-//     else
-//     {
-//       return (
-//         <div className="profile">
-//           <Table striped bordered responsive="sm">
-//         <h1>Company Profile Data Not Available</h1>
-//       </Table>
-//         </div>
-//       );
-//     }
-//   }
-// }
-
-// export default CompanyProfile

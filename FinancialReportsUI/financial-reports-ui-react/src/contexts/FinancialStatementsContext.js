@@ -1,22 +1,11 @@
 import { useState, createContext } from 'react';
-import incomeStatementRequest from '../Data/financialStatementsRequest';
 
 export const FinancialStatementsContext = createContext();
 
 function FinancialStatementsContextProvider(props) {
   const [financialStatements, setFinancialStatements ] = useState([]);
-
-  const getAllFinancialStatements = (companyTicker) => {
-    incomeStatementRequest.getAllFinancialStatements(companyTicker).then((financialStatements) => {
-      setFinancialStatements(financialStatements);
-    })
-  }
-
-  const clearFinancialStatements = () => {
-      setFinancialStatements([]);
-  }
-
-  const value = {financialStatements, getAllFinancialStatements, clearFinancialStatements}
+  
+  const value = {financialStatements, setFinancialStatements}
 
   return (
     <FinancialStatementsContext.Provider value={value}>
