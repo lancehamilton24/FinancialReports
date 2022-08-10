@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using FinancialReportsGenerator.Interfaces;
 
 namespace FinancialReportsGenerator.Controllers
 {
@@ -20,11 +21,17 @@ namespace FinancialReportsGenerator.Controllers
     public class FinancialStatementsController : Controller
     {
         FinancialStatementService _apiService;
+        IFMPApiClient _apiClient;
+
+        public FinancialStatementsController(IFMPApiClient apiClient)
+        {
+            _apiClient = apiClient;
+        }
 
         [HttpGet("financialstatements/{companyTicker}")]
         public async Task<FinancialStatement> GetAllFinancialStatements(string companyTicker)
         {
-            _apiService = new FinancialStatementService();
+            _apiService = new FinancialStatementService(_apiClient);
 
             try
             {

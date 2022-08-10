@@ -1,3 +1,5 @@
+using FinancialReportsGenerator.ApiClients;
+using FinancialReportsGenerator.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,6 +44,11 @@ namespace FinancialReportsGenerator
             //           .AllowAnyMethod()
             //           .AllowAnyHeader();
             //}));
+            services.AddHttpClient<IFMPApiClient, FMPApiClient>(c =>
+            {
+                c.BaseAddress = new Uri("https://financialmodelingprep.com");
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

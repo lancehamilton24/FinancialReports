@@ -1,4 +1,5 @@
 ﻿using FinancialReportsGenerator.ApiClients;
+using FinancialReportsGenerator.Interfaces;
 using FinancialReportsGenerator.Models;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,14 @@ namespace FinancialReportsGenerator.Services
 {
     public class BalanceSheetService
     {
-        FMPApiClient _apiClient;
+        IFMPApiClient _apiClient;
 
+        public BalanceSheetService(IFMPApiClient apiClient)
+        {
+            _apiClient = apiClient;
+        }
         public async Task<List<BalanceSheet>> GetAllBalanceSheets(string companyTicker)
         {
-            _apiClient = new FMPApiClient();
             var response = await _apiClient.GetAllBalanceSheets(companyTicker);
             var balanceSheets = response.Item3;
             var balanceSheetList = new List<BalanceSheet>();

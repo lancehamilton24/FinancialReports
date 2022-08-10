@@ -1,4 +1,5 @@
 ﻿using FinancialReportsGenerator.ApiClients;
+using FinancialReportsGenerator.Interfaces;
 using FinancialReportsGenerator.Models;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,12 @@ namespace FinancialReportsGenerator.Services
         IncomeStatementService _incomeStatementService;
         BalanceSheetService _balanceSheetService;
         CashFlowStatementService _cashFlowService;
+        IFMPApiClient _apiClient;
+
+        public FinancialStatementService(IFMPApiClient apiClient)
+        {
+            _apiClient = apiClient;
+        }
 
         public async Task<FinancialStatement> GetAllFinancialStatements(string companyTicker)
         {
@@ -33,28 +40,28 @@ namespace FinancialReportsGenerator.Services
 
         public async Task<CompanyProfile> GetCompanyProfile(string companyTicker)
         {
-            _profileService = new CompanyProfileService();
+            _profileService = new CompanyProfileService(_apiClient);
             var response = await _profileService.GetCompanyProfile(companyTicker);
             return response;
         }
 
         public async Task<List<IncomeStatement>> GetAllIncomeStatements(string companyTicker)
         {
-            _incomeStatementService = new IncomeStatementService();
+            _incomeStatementService = new IncomeStatementService(_apiClient);
             var response = await _incomeStatementService.GetAllIncomeStatements(companyTicker);
             return response;
         }
 
         public async Task<List<BalanceSheet>> GetAllBalanceSheets(string companyTicker)
         {
-            _balanceSheetService = new BalanceSheetService();
+            _balanceSheetService = new BalanceSheetService(_apiClient);
             var response = await _balanceSheetService.GetAllBalanceSheets(companyTicker);
             return response;
         }
 
         public async Task<List<CashFlowStatement>> GetAllCashFlowStatements(string companyTicker)
         {
-            _cashFlowService = new CashFlowStatementService();
+            _cashFlowService = new CashFlowStatementService(_apiClient);
             var response = await _cashFlowService.GetAllCashFlowStatements(companyTicker);
             return response;
         }
