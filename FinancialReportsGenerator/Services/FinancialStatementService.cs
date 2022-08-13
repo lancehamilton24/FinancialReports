@@ -27,7 +27,7 @@ namespace FinancialReportsGenerator.Services
             FinancialStatement financialStatements;
             financialStatements = new FinancialStatement()
             {
-                CompanyProfile = await GetCompanyProfile(companyTicker),
+                //CompanyProfile = await GetCompanyProfile(companyTicker),
                 IncomeStatement = await GetAllIncomeStatements(companyTicker),
                 BalanceSheet = await GetAllBalanceSheets(companyTicker),
                 CashFlowStatement = await GetAllCashFlowStatements(companyTicker),
@@ -38,12 +38,12 @@ namespace FinancialReportsGenerator.Services
             return financialStatements;
         }
 
-        public async Task<CompanyProfile> GetCompanyProfile(string companyTicker)
-        {
-            _profileService = new CompanyProfileService(_apiClient);
-            var response = await _profileService.GetCompanyProfile(companyTicker);
-            return response;
-        }
+        //public async Task<CompanyProfile> GetCompanyProfile(string companyTicker)
+        //{
+        //    _profileService = new CompanyProfileService(_apiClient);
+        //    var response = await _profileService.GetCompanyProfile(companyTicker);
+        //    return response;
+        //}
 
         public async Task<List<IncomeStatement>> GetAllIncomeStatements(string companyTicker)
         {

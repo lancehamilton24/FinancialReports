@@ -20,24 +20,21 @@ namespace FinancialReportsGenerator.Services
 
         public async Task<CompanyProfile> GetCompanyProfile(string companyTicker)
         {
-            var response = await _apiClient.GetCompanyProfile(companyTicker);
-            var profiles = response.Item3;
-            var companyProfile = new CompanyProfile();
-            foreach (var profile in profiles)
-            {
-                companyProfile = new CompanyProfile
-                {
-                    Symbol = profile.Symbol,
-                    Name = profile.Name,
-                    Price = profile.Price,
-                    YearHigh = profile.YearHigh,
-                    YearLow = profile.YearLow,
-                    MarketCap = profile.MarketCap,
-                    Eps = profile.Eps,
-                    Pe = profile.Pe
-                };
-            }
+            var profileResponse = await _apiClient.GetCompanyProfile(companyTicker);
+            CompanyProfile companyProfile = new CompanyProfile();
 
+            if (profileResponse.Item1 == System.Net.HttpStatusCode.OK)
+            {
+                var profileJSON = profileResponse.Item2;
+                foreach (var profile in profileJSON)
+                {
+                    companyProfile.Symbol = profile.Symbol;
+                    companyProfile.Name = profile.CompanyName;
+                    companyProfile.Price = profile.Price;
+                    companyProfile.MarketCap = profile.MktCap;
+                }
+            }
+            
             return companyProfile;
         }
     }

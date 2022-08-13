@@ -12,67 +12,109 @@ namespace FinancialReportsGenerator.JsonModels
         [JsonProperty("symbol")]
         public string Symbol { get; set; }
 
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
         [JsonProperty("price")]
         public double Price { get; set; }
 
-        [JsonProperty("changesPercentage")]
-        public double ChangesPercentage { get; set; }
+        [JsonProperty("beta")]
+        public double Beta { get; set; }
 
-        [JsonProperty("change")]
-        public double Change { get; set; }
+        [JsonProperty("volAvg")]
+        public long VolAvg { get; set; }
 
-        [JsonProperty("dayLow")]
-        public double DayLow { get; set; }
+        [JsonProperty("mktCap")]
+        public long MktCap { get; set; }
 
-        [JsonProperty("dayHigh")]
-        public double DayHigh { get; set; }
+        [JsonProperty("lastDiv")]
+        public double LastDiv { get; set; }
 
-        [JsonProperty("yearHigh")]
-        public long YearHigh { get; set; }
+        [JsonProperty("range")]
+        public string Range { get; set; }
 
-        [JsonProperty("yearLow")]
-        public double YearLow { get; set; }
+        [JsonProperty("changes")]
+        public double Changes { get; set; }
 
-        [JsonProperty("marketCap")]
-        public long MarketCap { get; set; }
+        [JsonProperty("companyName")]
+        public string CompanyName { get; set; }
 
-        [JsonProperty("priceAvg50")]
-        public double PriceAvg50 { get; set; }
+        [JsonProperty("currency")]
+        public string Currency { get; set; }
 
-        [JsonProperty("priceAvg200")]
-        public double PriceAvg200 { get; set; }
+        [JsonProperty("cik")]
+        public string Cik { get; set; }
 
-        [JsonProperty("volume")]
-        public long Volume { get; set; }
+        [JsonProperty("isin")]
+        public string Isin { get; set; }
 
-        [JsonProperty("avgVolume")]
-        public long AvgVolume { get; set; }
+        [JsonProperty("cusip")]
+        public string Cusip { get; set; }
 
         [JsonProperty("exchange")]
         public string Exchange { get; set; }
 
-        [JsonProperty("open")]
-        public double Open { get; set; }
+        [JsonProperty("exchangeShortName")]
+        public string ExchangeShortName { get; set; }
 
-        [JsonProperty("previousClose")]
-        public double PreviousClose { get; set; }
+        [JsonProperty("industry")]
+        public string Industry { get; set; }
 
-        [JsonProperty("eps")]
-        public double Eps { get; set; }
+        [JsonProperty("website")]
+        public Uri Website { get; set; }
 
-        [JsonProperty("pe", NullValueHandling = NullValueHandling.Ignore)]
-        public double Pe { get; set; }
+        [JsonProperty("description")]
+        public string Description { get; set; }
 
-        [JsonProperty("earningsAnnouncement")]
-        public string EarningsAnnouncement { get; set; }
+        [JsonProperty("ceo")]
+        public string Ceo { get; set; }
 
-        [JsonProperty("sharesOutstanding")]
-        public long SharesOutstanding { get; set; }
+        [JsonProperty("sector")]
+        public string Sector { get; set; }
 
-        [JsonProperty("timestamp")]
-        public long Timestamp { get; set; }
+        [JsonProperty("country")]
+        public string Country { get; set; }
+
+        [JsonProperty("fullTimeEmployees")]
+        public long FullTimeEmployees { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty("address")]
+        public string Address { get; set; }
+
+        [JsonProperty("city")]
+        public string City { get; set; }
+
+        [JsonProperty("state")]
+        public string State { get; set; }
+
+        [JsonProperty("zip")]
+        public long Zip { get; set; }
+
+        [JsonProperty("dcfDiff")]
+        public double? DcfDiff { get; set; }
+
+        [JsonProperty("dcf")]
+        public double Dcf { get; set; }
+
+        [JsonProperty("image")]
+        public Uri Image { get; set; }
+
+        [JsonProperty("ipoDate")]
+        public DateTimeOffset IpoDate { get; set; }
+
+        [JsonProperty("defaultImage")]
+        public bool DefaultImage { get; set; }
+
+        [JsonProperty("isEtf")]
+        public bool IsEtf { get; set; }
+
+        [JsonProperty("isActivelyTrading")]
+        public bool IsActivelyTrading { get; set; }
+
+        [JsonProperty("isAdr")]
+        public bool IsAdr { get; set; }
+
+        [JsonProperty("isFund")]
+        public bool IsFund { get; set; }
     }
 }

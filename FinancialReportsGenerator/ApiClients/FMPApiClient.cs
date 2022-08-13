@@ -20,16 +20,18 @@ namespace FinancialReportsGenerator.ApiClients
             _httpClient = httpClient;
         }
 
-        public async Task<Tuple<HttpStatusCode, string, List<CompanyProfileJson>>> GetCompanyProfile(string companyTicker)
+        public async Task<Tuple<HttpStatusCode, List<CompanyProfileJson>>> GetCompanyProfile(string companyTicker)
         {
-            List<CompanyProfileJson> companyProfile;
-            _httpClient.DefaultRequestHeaders.Accept.Clear();
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = await _httpClient.GetAsync($"/api/v3/profile/{companyTicker}?limit=120&apikey=be1ce41dccee923dcd1484989bc6384b");
 
-            var companyProfileJSON = await response.Content.ReadAsStringAsync();
-            companyProfile = JsonConvert.DeserializeObject<List<CompanyProfileJson>>(companyProfileJSON);
-            return new Tuple<HttpStatusCode, string, List<CompanyProfileJson>>(HttpStatusCode.OK, "Success", companyProfile);
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                return new Tuple<HttpStatusCode, List<CompanyProfileJson>>(response.StatusCode, null);
+            }
+
+            var companyProfileContent = response.Content.ReadAsStringAsync().Result;
+            List<CompanyProfileJson> companyProfileJSON = JsonConvert.DeserializeObject<List<CompanyProfileJson>>(companyProfileContent);
+            return new Tuple<HttpStatusCode, List<CompanyProfileJson>>(response.StatusCode, companyProfileJSON);
         }
 
         public async Task<Tuple<HttpStatusCode, string, List<IncomeStatementJson>>> GetAllIncomeStatements(string companyTicker)

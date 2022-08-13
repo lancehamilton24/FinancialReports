@@ -38,7 +38,23 @@ namespace FinancialReportsGenerator.Controllers
                 var response = await _apiService.GetAllFinancialStatements(companyTicker);
                 return response;
             }
-            catch (Exception e)
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        [HttpGet("companyprofile/{companyTicker}")]
+        public async Task<CompanyProfile> CompanyProfileGet(string companyTicker)
+        {
+            CompanyProfileService _apiService = new CompanyProfileService(_apiClient);
+
+            try
+            {
+                var response = await _apiService.GetCompanyProfile(companyTicker);
+                return response;
+            }
+            catch (Exception ex)
             {
                 throw;
             }
