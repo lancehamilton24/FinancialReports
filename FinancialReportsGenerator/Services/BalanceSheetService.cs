@@ -17,10 +17,10 @@ namespace FinancialReportsGenerator.Services
         {
             _apiClient = apiClient;
         }
-        public async Task<List<BalanceSheet>> GetAllBalanceSheets(string companyTicker)
+        public async Task<List<BalanceSheet>> BalanceSheetsGet(string companyTicker)
         {
-            var response = await _apiClient.GetAllBalanceSheets(companyTicker);
-            var balanceSheets = response.Item3;
+            var response = await _apiClient.BalanceSheetsGet(companyTicker);
+            var balanceSheets = response.Item2;
             var balanceSheetList = new List<BalanceSheet>();
             foreach (var statement in balanceSheets)
             {

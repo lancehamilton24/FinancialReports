@@ -59,5 +59,53 @@ namespace FinancialReportsGenerator.Controllers
                 throw;
             }
         }
+
+        [HttpGet("incomestatements/{companyTicker}")]
+        public async Task<List<IncomeStatement>> IncomeStatementsGet(string companyTicker)
+        {
+            IncomeStatementService _apiService = new IncomeStatementService(_apiClient);
+
+            try
+            {
+                var response = await _apiService.IncomeStatementsGet(companyTicker);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        [HttpGet("balancesheets/{companyTicker}")]
+        public async Task<List<BalanceSheet>> BalanceSheetsGet(string companyTicker)
+        {
+            BalanceSheetService _apiService = new BalanceSheetService(_apiClient);
+
+            try
+            {
+                var response = await _apiService.BalanceSheetsGet(companyTicker);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        [HttpGet("cashflows/{companyTicker}")]
+        public async Task<List<CashFlowStatement>> CashFlowStatementsGet(string companyTicker)
+        {
+            CashFlowStatementService _apiService = new CashFlowStatementService(_apiClient);
+
+            try
+            {
+                var response = await _apiService.CashFlowStatementsGet(companyTicker);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

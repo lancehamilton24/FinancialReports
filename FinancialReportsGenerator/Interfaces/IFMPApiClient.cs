@@ -10,8 +10,8 @@ namespace FinancialReportsGenerator.Interfaces
     public interface IFMPApiClient
     {
         Task<Tuple<HttpStatusCode, List<CompanyProfileJson>>> GetCompanyProfile(string companyTicker);
-        Task<Tuple<HttpStatusCode, string, List<IncomeStatementJson>>> GetAllIncomeStatements(string companyTicker);
-        Task<Tuple<HttpStatusCode, string, List<BalanceSheetJson>>> GetAllBalanceSheets(string companyTicker);
-        Task<Tuple<HttpStatusCode, string, List<CashFlowStatementJson>>> GetAllCashFlowStatements(string companyTicker);
+        Task<Tuple<HttpStatusCode, List<IncomeStatementJson>>> IncomeStatementsGet(string companyTicker);
+        Task<Tuple<HttpStatusCode, List<BalanceSheetJson>>> BalanceSheetsGet(string companyTicker);
+        Task<Tuple<HttpStatusCode, List<CashFlowStatementJson>>> CashFlowStatementsGet(string companyTicker);
     }
 }

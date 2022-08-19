@@ -29,50 +29,52 @@ namespace FinancialReportsGenerator.ApiClients
                 return new Tuple<HttpStatusCode, List<CompanyProfileJson>>(response.StatusCode, null);
             }
 
-            var companyProfileContent = response.Content.ReadAsStringAsync().Result;
-            List<CompanyProfileJson> companyProfileJSON = JsonConvert.DeserializeObject<List<CompanyProfileJson>>(companyProfileContent);
-            return new Tuple<HttpStatusCode, List<CompanyProfileJson>>(response.StatusCode, companyProfileJSON);
+            var companyProfileJSON = response.Content.ReadAsStringAsync().Result;
+            List<CompanyProfileJson> companyProfile = JsonConvert.DeserializeObject<List<CompanyProfileJson>>(companyProfileJSON);
+            return new Tuple<HttpStatusCode, List<CompanyProfileJson>>(response.StatusCode, companyProfile);
         }
 
-        public async Task<Tuple<HttpStatusCode, string, List<IncomeStatementJson>>> GetAllIncomeStatements(string companyTicker)
+        public async Task<Tuple<HttpStatusCode, List<IncomeStatementJson>>> IncomeStatementsGet(string companyTicker)
         {
-            List<IncomeStatementJson> incomeStatements;
-            _httpClient.DefaultRequestHeaders.Accept.Clear();
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = await _httpClient.GetAsync($"/api/v3/income-statement/{companyTicker}?limit=120&apikey=be1ce41dccee923dcd1484989bc6384b");
 
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                return new Tuple<HttpStatusCode, List<IncomeStatementJson>>(response.StatusCode, null);
+            }
+
             var incomeStatementJSON = await response.Content.ReadAsStringAsync();
-            incomeStatements = JsonConvert.DeserializeObject<List<IncomeStatementJson>>(incomeStatementJSON);
-            return new Tuple<HttpStatusCode, string, List<IncomeStatementJson>>(HttpStatusCode.OK, "Success", incomeStatements);
+            List<IncomeStatementJson> incomeStatements = JsonConvert.DeserializeObject<List<IncomeStatementJson>>(incomeStatementJSON);
+            return new Tuple<HttpStatusCode, List<IncomeStatementJson>>(response.StatusCode, incomeStatements);
         }
 
-        public async Task<Tuple<HttpStatusCode, string, List<BalanceSheetJson>>> GetAllBalanceSheets(string companyTicker)
+        public async Task<Tuple<HttpStatusCode, List<BalanceSheetJson>>> BalanceSheetsGet(string companyTicker)
         {
-            List<BalanceSheetJson> balanceSheets;
-            _httpClient.DefaultRequestHeaders.Accept.Clear();
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
             HttpResponseMessage response = await _httpClient.GetAsync($"/api/v3/balance-sheet-statement/{companyTicker}?limit=120&apikey=be1ce41dccee923dcd1484989bc6384b");
 
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                return new Tuple<HttpStatusCode, List<BalanceSheetJson>>(response.StatusCode, null);
+            }
+
             var balanceSheetJSON = await response.Content.ReadAsStringAsync();
-            balanceSheets = JsonConvert.DeserializeObject<List<BalanceSheetJson>>(balanceSheetJSON);
-            return new Tuple<HttpStatusCode, string, List<BalanceSheetJson>>(HttpStatusCode.OK, "Success", balanceSheets);
+            List<BalanceSheetJson> balanceSheets = JsonConvert.DeserializeObject<List<BalanceSheetJson>>(balanceSheetJSON);
+            return new Tuple<HttpStatusCode,  List<BalanceSheetJson>>(HttpStatusCode.OK, balanceSheets);
 
         }
 
-        public async Task<Tuple<HttpStatusCode, string, List<CashFlowStatementJson>>> GetAllCashFlowStatements(string companyTicker)
+        public async Task<Tuple<HttpStatusCode, List<CashFlowStatementJson>>> CashFlowStatementsGet(string companyTicker)
         {
-
-            List<CashFlowStatementJson> cashFlowStatements;
-            _httpClient.DefaultRequestHeaders.Accept.Clear();
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = await _httpClient.GetAsync($"/api/v3/cash-flow-statement/{companyTicker}?limit=120&apikey=be1ce41dccee923dcd1484989bc6384b");
 
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                return new Tuple<HttpStatusCode, List<CashFlowStatementJson>>(response.StatusCode, null);
+            }
+
             var cashFlowStatmentJSON = await response.Content.ReadAsStringAsync();
-            cashFlowStatements = JsonConvert.DeserializeObject<List<CashFlowStatementJson>>(cashFlowStatmentJSON);
-            return new Tuple<HttpStatusCode, string, List<CashFlowStatementJson>>(HttpStatusCode.OK, "success", cashFlowStatements);
+            List<CashFlowStatementJson> cashFlowStatements = JsonConvert.DeserializeObject<List<CashFlowStatementJson>>(cashFlowStatmentJSON);
+            return new Tuple<HttpStatusCode, List<CashFlowStatementJson>>(HttpStatusCode.OK, cashFlowStatements);
         }
     }
 }

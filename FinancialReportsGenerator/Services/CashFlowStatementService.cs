@@ -18,10 +18,10 @@ namespace FinancialReportsGenerator.Services
             _apiClient = apiClient;
         }
 
-        public async Task<List<CashFlowStatement>> GetAllCashFlowStatements(string companyTicker)
+        public async Task<List<CashFlowStatement>> CashFlowStatementsGet(string companyTicker)
         {
-            var response = await _apiClient.GetAllCashFlowStatements(companyTicker);
-            var cashFlowStatements = response.Item3;
+            var response = await _apiClient.CashFlowStatementsGet(companyTicker);
+            var cashFlowStatements = response.Item2;
             var cashFlowStatementList = new List<CashFlowStatement>();
             foreach (var statement in cashFlowStatements)
             {
