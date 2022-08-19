@@ -1,7 +1,6 @@
 using FinancialReportsGenerator.Controllers;
 using FinancialReportsGenerator.Models;
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace FinancialReportsApiUnitTests
 {

@@ -1,11 +1,7 @@
-﻿using FinancialReportsGenerator.ApiClients;
-using FinancialReportsGenerator.Interfaces;
+﻿using FinancialReportsGenerator.Interfaces;
 using FinancialReportsGenerator.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FinancialReportsGenerator.Services
