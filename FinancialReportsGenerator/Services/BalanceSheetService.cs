@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FinancialReportsGenerator.Services
 {
-    public class BalanceSheetService
+    public class BalanceSheetService : IBalanceSheetService
     {
         IFMPApiClient _apiClient;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinancialReportsGenerator.Services
 {
-    public class IncomeStatementService
+    public class IncomeStatementService : IIncomeStatementService
     {
         IFMPApiClient _apiClient;
 

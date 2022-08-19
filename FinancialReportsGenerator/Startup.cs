@@ -32,12 +32,6 @@ namespace FinancialReportsGenerator
                 });
             });
 
-            //services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
-            //{
-            //    builder.AllowAnyOrigin()
-            //           .AllowAnyMethod()
-            //           .AllowAnyHeader();
-            //}));
             services.AddHttpClient<IFMPApiClient, FMPApiClient>(c =>
             {
                 c.BaseAddress = new Uri("https://financialmodelingprep.com");
