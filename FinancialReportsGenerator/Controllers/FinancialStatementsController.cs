@@ -10,42 +10,29 @@ using FinancialReportsGenerator.Interfaces;
 namespace FinancialReportsGenerator.Controllers
 {
     [ApiController]
-    [EnableCors("My Policy")]
     [Route("api/[controller]")]
     public class FinancialStatementsController : Controller
     {
-        FinancialStatementService _apiService;
-        IFMPApiClient _apiClient;
+        ICompanyProfileService _companyProfileService;
+        IIncomeStatementService _incomeStatementService;
+        IBalanceSheetService _balanceSheetService;
+        ICashFlowStatementService _cashFlowStatementService;
 
-        public FinancialStatementsController(IFMPApiClient apiClient)
+        public FinancialStatementsController(ICompanyProfileService companyProfileService, IIncomeStatementService incomeStatementService,
+            IBalanceSheetService balanceSheetService, ICashFlowStatementService cashFlowStatementService)
         {
-            _apiClient = apiClient;
-        }
-
-        [HttpGet("financialstatements/{companyTicker}")]
-        public async Task<FinancialStatement> GetAllFinancialStatements(string companyTicker)
-        {
-            _apiService = new FinancialStatementService(_apiClient);
-
-            try
-            {
-                var response = await _apiService.GetAllFinancialStatements(companyTicker);
-                return response;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            _companyProfileService = companyProfileService;
+            _incomeStatementService = incomeStatementService;
+            _balanceSheetService = balanceSheetService;
+            _cashFlowStatementService = cashFlowStatementService;
         }
 
         [HttpGet("companyprofile/{companyTicker}")]
         public async Task<CompanyProfile> CompanyProfileGet(string companyTicker)
         {
-            CompanyProfileService _apiService = new CompanyProfileService(_apiClient);
-
             try
             {
-                var response = await _apiService.GetCompanyProfile(companyTicker);
+                var response = await _companyProfileService.GetCompanyProfile(companyTicker);
                 return response;
             }
             catch (Exception ex)
@@ -57,11 +44,9 @@ namespace FinancialReportsGenerator.Controllers
         [HttpGet("incomestatements/{companyTicker}")]
         public async Task<List<IncomeStatement>> IncomeStatementsGet(string companyTicker)
         {
-            IncomeStatementService _apiService = new IncomeStatementService(_apiClient);
-
             try
             {
-                var response = await _apiService.IncomeStatementsGet(companyTicker);
+                var response = await _incomeStatementService.IncomeStatementsGet(companyTicker);
                 return response;
             }
             catch (Exception ex)
@@ -73,11 +58,9 @@ namespace FinancialReportsGenerator.Controllers
         [HttpGet("balancesheets/{companyTicker}")]
         public async Task<List<BalanceSheet>> BalanceSheetsGet(string companyTicker)
         {
-            BalanceSheetService _apiService = new BalanceSheetService(_apiClient);
-
             try
             {
-                var response = await _apiService.BalanceSheetsGet(companyTicker);
+                var response = await _balanceSheetService.BalanceSheetsGet(companyTicker);
                 return response;
             }
             catch (Exception ex)
@@ -89,11 +72,9 @@ namespace FinancialReportsGenerator.Controllers
         [HttpGet("cashflows/{companyTicker}")]
         public async Task<List<CashFlowStatement>> CashFlowStatementsGet(string companyTicker)
         {
-            CashFlowStatementService _apiService = new CashFlowStatementService(_apiClient);
-
             try
             {
-                var response = await _apiService.CashFlowStatementsGet(companyTicker);
+                var response = await _cashFlowStatementService.CashFlowStatementsGet(companyTicker);
                 return response;
             }
             catch (Exception ex)

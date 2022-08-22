@@ -37,11 +37,15 @@ C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\FinancialR
 C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\FinancialReportsGenerator.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\ref\FinancialReportsGenerator.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\FinancialReportsGenerator.pdb
+C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\System.Net.Http.Formatting.dll
+C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\System.Web.Http.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\Microsoft.OpenApi.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.csproj.AssemblyReference.cache
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.GeneratedMSBuildEditorConfig.editorconfig
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.AssemblyInfoInputs.cache
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.AssemblyInfo.cs
@@ -56,8 +60,3 @@ C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialR
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\ref\FinancialReportsGenerator.dll
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.pdb
 C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.genruntimeconfig.cache
-C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.csproj.AssemblyReference.cache
-C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\System.Net.Http.Formatting.dll
-C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\System.Web.Http.dll
-C:\Github\FinancialReports\FinancialReportsGenerator\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
-C:\Github\FinancialReports\FinancialReportsGenerator\obj\Debug\net5.0\FinancialReportsGenerator.csproj.CopyComplete

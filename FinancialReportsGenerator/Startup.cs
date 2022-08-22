@@ -1,5 +1,6 @@
 using FinancialReportsGenerator.ApiClients;
 using FinancialReportsGenerator.Interfaces;
+using FinancialReportsGenerator.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,20 +23,14 @@ namespace FinancialReportsGenerator
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(opt =>
-            {
-                opt.AddPolicy(name: "My Policy", builder =>
-                {
-                    builder.AllowAnyOrigin()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod();
-                });
-            });
-
             services.AddHttpClient<IFMPApiClient, FMPApiClient>(c =>
             {
                 c.BaseAddress = new Uri("https://financialmodelingprep.com");
             });
+            services.AddScoped<ICompanyProfileService, CompanyProfileService>();
+            services.AddScoped<IIncomeStatementService, IncomeStatementService>();
+            services.AddScoped<IBalanceSheetService, BalanceSheetService>();
+            services.AddScoped<ICashFlowStatementService, CashFlowStatementService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -46,8 +41,7 @@ namespace FinancialReportsGenerator
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            
+        { 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -58,18 +52,12 @@ namespace FinancialReportsGenerator
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseCors("My Policy");
-            //app.UseCors(builder =>
-            //{
-            //    builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000/").AllowCredentials();
-            //});
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-            
         }
     }
 }
